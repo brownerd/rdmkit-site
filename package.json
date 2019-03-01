@@ -1,0 +1,30 @@
+{
+  "name": "RDMKIT",
+  "version": "1.0.0",
+  "description": "RDMKIT is a tool for creating better web typography and vertical rhythm.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/pug/index.pug --open 'google chrome canary'",
+    "build": "parcel build src/pug/index.pug",
+    "clean": "rimraf dist",
+    "deploy": "aws s3 cp dist/ s3://rdmkit.com --recursive",
+    "killcache": "aws cloudfront create-invalidation --distribution-id E2ZQXLW2GYX1C5 --paths /*"
+  },
+  "keywords": [
+    "typography"
+  ],
+  "author": "Brownerd",
+  "repository": "",
+  "license": "ISC",
+  "dependencies": {
+    "prismjs": "^1.15.0",
+    "rdmkit-cpl": "^1.0.9",
+    "rdmkit-mzr": "^1.0.5",
+    "rdmkit-rdm": "^1.0.0",
+    "rdmkit-vrt": "^1.0.4"
+  },
+  "devDependencies": {
+    "parcel": "^1.11.0",
+    "pug": "^2.0.3"
+  }
+}
