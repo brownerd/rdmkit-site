@@ -12,7 +12,7 @@ face = {
 }
 
 // simple breakpoints
- breakpoints = {
+breakpoints = {
   xs: "(max-width: 510px)",
   sm: "(max-width: 850px)",
   med: "(max-width: 1024px)",
@@ -70,6 +70,7 @@ codeToken = charcoal
 @import "vendor/*"
 
 :root 
+  box-sizing border-box
   font-size baseFontSize
   line-height lineHeight // 1.5
 
@@ -89,6 +90,21 @@ codeToken = charcoal
     main
       max-width 35ch
 
+  &.fix-space
+    p.spacing
+      margin-bottom full
+
+    hgroup.hierarchy
+      margin-top double
+      margin-bottom full
+
+    button 
+      border none
+      outline 2px solid currentColor
+      &::after:hover
+        border none
+        outline 2px solid currentColor
+
 *
   margin 0
   padding 0
@@ -98,13 +114,6 @@ codeToken = charcoal
   // line-height lineHeight
   border none
   outline none
-
-
-html
-  line-height: lineHeight // 1
-  text-size-adjust none // 2
-  box-sizing border-box
-
 
 *, 
 *:before, 
@@ -132,20 +141,22 @@ figure
     width 100% 
     /* height: 291px;  */
     object-fit cover
+    object-position 50% 50%
     /* padding: .5rem */
 
 p, ul
   transition fx
 
 .spacing
-  margin-bottom full
+  margin-bottom 23px
+    
 
 hgroup
   transition fx
 
 .hierarchy
-  margin-top double
-  margin-bottom full
+  margin-top 33px
+  margin-bottom 13px
 
   h1, h2
     font-weight bold
@@ -155,13 +166,14 @@ hgroup
   h3
     font-style italic
 
-button
+
+.button
   background-color charcoal
   color white
   padding 0 .5rem
   // padding half
 
-.button 
+button 
   border 2px solid currentColor
   // outline 2px solid currentColor
   // border-radius 3rem
@@ -169,7 +181,7 @@ button
   // font-family roboto
   font-size 1rem
   overflow hidden
-  padding: half full
+  padding: 0 half
   position relative
   text-decoration none
   transition .2s transform ease-in-out
@@ -206,8 +218,53 @@ button
 main
   max-width 100%
   margin 0 auto
+  margin-bottom full
   transition fx
 
+
+strong 
+  font-weight bold
+
+
+.main
+  
+  &__column
+    margin 0 auto
+    width 75ch
+
+    p, ul 
+      margin-bottom full
+
+    hgroup
+      margin-top double
+      margin-bottom 1rem
+
+
+  &__heading
+    font-size 2rem
+    line-height 1
+
+  &__subhead
+    font-style italic
+
+  &__subbold
+    font-weight bold
+
+
+
+// Stripe
+  .stripeBg::after
+    background-color #333
+    background-image: repeating-linear-gradient(90deg, transparent, transparent 5px, bg 5px, bg 10px);
+    
+    content: ''
+    position absolute
+    height 50%
+    width 100%
+    top 0
+    left -2.5vw
+    transform skewX(-45deg)
+    //mix-blend-mode multiply
 
 
 // IBM Plex Mono Regular

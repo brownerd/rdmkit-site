@@ -9,7 +9,7 @@ pre
   // border-radius: .5rem
   border: none !important
   box-shadow: none !important
-  padding: .75rem !important
+  padding: 1.5rem !important
   font-size: 1rem !important
 
   span
@@ -32,7 +32,7 @@ pre[class*="language-"]
 /* Code blocks */
 pre[class*="language-"]
   position: relative
-  margin: .5em 0
+  margin: 1.5rem 0
   box-shadow: -1px 0px 0px 0px #358ccb, 0px 0px 0px 1px #dfdfdf
   border-left: 10px solid #358ccb
   // background-color: #fdfdfd
@@ -40,13 +40,14 @@ pre[class*="language-"]
   // background-size: 3em 3em
   background-origin: content-box
   overflow: visible
-  max-height: 30em
+  // max-height: 30em
 
 
 code[class*="language"]
+  font-weight 100
   max-height: inherit
   height: 100%
-  //padding: 0 1em
+  padding: 0 .25rem
   // display: block
   overflow: auto
 
@@ -111,6 +112,7 @@ pre[class*="language-"]
 .token.symbol,
 .token.deleted
   color: codeFucPropConstNum
+  font-weight: normal
 
 
 .token.selector,
@@ -122,7 +124,7 @@ pre[class*="language-"]
 .token.inserted
   color: codeSelectorStrAttr
   font-style: italic
-  font-weight: 100
+  font-weight: bold
 
 
 .token.operator,
@@ -149,6 +151,7 @@ pre[class*="language-"]
 .language-css .token.string,
 .style .token.string
   color: codeStyleToken
+  // font-weight: bold
   // background: rgba(255, 255, 255, 0.5)
 
 

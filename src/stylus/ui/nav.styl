@@ -1,11 +1,11 @@
-nav
+.navtop
   display grid
-  grid-template-columns auto auto
-  grid-template-areas: "logo nav"
+  grid-template-columns auto 1fr auto
+  grid-template-areas: "logo tagline nav"
+  grid-gap full
   align-items center
-  justify-content space-between
+  // justify-content space-between
   text-align center
-  // height 6vh
   width 100%
 
 .logo
@@ -14,13 +14,22 @@ nav
   grid-area logo
   padding half
   text-decoration none
+  width min-content
+
+.tagline
+  font-style italic
+  grid-area tagline
+  justify-self start
+  text-align left
+  width max-content
 
 .nav
   grid-area nav
-  display grid
-  grid-template-columns auto auto
-  grid-column-gap 1rem
+  display flex
+  // grid-template-columns repeat(auto-fit, 1fr)
+  // grid-column-gap 1rem
   // justify-self end
+  width 100%
 
   a
     padding half

@@ -1,0 +1,71 @@
+extends layout/layout.pug
+
+//- .hero
+//-   div(class="hero__heading") RDMKIT
+
+block content
+  main
+    hgroup
+      h2 Let's set some EFF'n type!
+
+    p I promise, this will not be about typographical commandments and shaming. Rather, I'll introduce some tools I made to help us all with the challenge of setting pleasing type online. 
+
+
+    p Press the 
+        code.language-css period 
+        |   key twice
+
+    pre.language-css
+      code.
+        :root {
+          line-height: 1.5;
+          font-size: 20px;
+        }
+
+    hgroup
+      h2 Watch out
+      h3 for these elements
+
+
+    ul
+      li Border - use outline instead or box-shadow
+      li Button
+      li not using box-sizing
+      li elements that change line-height or font-size
+      li margin-collapsing
+
+  p warning these tools don't just do it all for you
+
+  h2 Usage
+  p It is not my intention to suggest that all of these tools need to be used to make a website. I just like having them at my disposal when I need them. 
+
+  div
+    h2 Citations
+    p The Elements of Typographic Style, Robert Bringhurst
+
+    h6 Typographer's task
+    ul
+      li The typogarpher's one essential task is to interpret and communicate the text (p 20)
+      li Typography exists to honor text (p 17)
+      li One of the principles of durable typography is always legibility (p 17)
+      li Shape the page and frame the textblock so that it honors and reveals every element, every relationship between elements, and every logical nuance of the text. (p 23)
+
+    h6 Choose face
+    ul
+      li Well-chosen word deserve well-chosen letters; these in their turn deserve to be set with affection, intelligence, knowledge and skill (p 18)
+      li Choose a typeface or a group of faces that will honor and elucidate the character of the text. (p 22)
+      li Allow the face to speak in its natural idiom
+      li Choose faces whose individual  spirit and character is in keeping with the text. (p 99)
+
+
+    h6 break rules
+    ul
+      li By all means break the rules, and break them beautifully, delibrately and well (p 10)
+      li Surely typographers, like others, ought to be at liberty to follow or to blaze the trails they choose
+
+
+    h6 Measure
+      ul
+        li Anything from 45 to 75 characters is widely regarded as a satisfactory length of line for a single-column page set in a serifed typeface in a text size. The 66-character line (counting both letters and spaces) is widely regarded as ideal. (p 26)
+        li Longer measures need more lead than short ones. (p 37)
+        li Whether oral or visual, longwindedness is very rarely a virtue.

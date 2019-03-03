@@ -10,8 +10,10 @@
   <script src="/stylus.48aea968.js"></script></head>
   <body>
     <div class="container">
-      <nav><a class="logo" href="/">RDMKIT</a>
-        <div class="nav"><a href="">Layout 2</a><a href="">Layout 3</a></div>
+      <nav class="navtop"><a class="logo" href="/">RDMKIT</a><span class="tagline">Tools for setting type online</span>
+        <div class="nav"><a href="/install.html">install</a><a href="/cpl.html">cpl</a><a href="/mzr.html">mzr</a><a href="/rdm.html">rdm</a><a href="/vrt.html">vrt</a><a href="/more.html">more</a><a href="/test.html">Test</a>
+          <btn rel="on">off</btn>
+        </div>
       </nav>
       <main>
         <hgroup>
@@ -40,79 +42,67 @@
         <p>A "measure" describes the the amount of characters you have in a line of text. Some call it line-length or characters-per-line. Obviously, a long measure is a line that has many characters-per-line. And a short measure has few characters-per-line, thus a short line-length.</p>
         <p>The measures in this page are as long as the page is wide. Back when screen resolutions were 800x600 pixels, it was hard to get super long line measures. Now with high-res screens, line-lengths can get insanely long. Just visit Wikipedia to experience the haven of ridiculously long measures. Here is a screen shot of a line that was 278 characters long! Yikes.</p>
         <figure><img src="/long-measure.24fce8bc.png" alt="Long measures on Wikipedia"></figure>
-        <p>So let's introduce the first tool here. I call it CPL. It's for counting characters-per-line. To use, simply click and drag to select this entire line of text. How many characters is it saying the line is? With my browser window fully stretched, I'm getting a read out of 159 characters. While traditional typography from the print world holds a measure of between 45-85 as optimal, the internet has conditioned us to digest stoopid long lines of text. So, instead of telling you what your line-lengths should be, let's just start by being able to count them easily and make informed decisions on what might be best for the current project. </p>
+        <p>So let's introduce the first tool here. I call it <strong>CPL</strong>. It's for counting characters-per-line. To use, simply click and drag to select this entire line of text. How many characters is it saying the line is? With my browser window fully stretched, I'm getting a read out of 159 characters. While traditional typography from the print world holds a measure of between 45-85 as optimal, the internet has conditioned us to digest stoopid long lines of text. So, instead of telling you what your line-lengths should be, let's just start by being able to count them easily and make informed decisions on what might be best for the current project. </p>
         <hgroup>
           <h2>Cool, we learned how to count characters easily</h2>
           <h3>but these measures are still crazy </h3>
         </hgroup>
         <p data-mzr="35/55/75">I'd say that the biggest issue right now is that the lines are way to long and they are touching each side of the browser window. We need margins. In print we need margins for protecting the text or making notes. However, online, we just need margins for separating site sections and making text look good. We have so much flexable space to use. We need to take advantage of this.</p>
-        <p>So how much margin do we need? And what about responsive matters? Let's say that we want a measure of ~35 characters on a mobile screen, ~55 characters on a tablet and ~75 on a desktop. I made another tool called MZR (measure) to visualize this. To make MZR work we need to add a data-attribute that looks like  <code class="language-css">data-mzr="35/55/75"</code>  this to any element in our code.</p>
+        <p>So how much margin do we need? And what about responsive matters? Let's say that we wanted to visualize  a measure of ~35 characters (for mobile), ~55 characters (for a tablet) and ~75 characters (for desktop)all at once. I made another tool called <strong>MZR</strong> (measure) to visualize this. To make MZR work we need to add a data-attribute like this <code class="language-css">data-mzr="35/55/75"</code> to any element in our code.</p>
         <p> 
           <button rel="mzr">Click here</button> to enable MZR so we can visualize multiple measures in one line.
         </p>
-        <P>Cool. So now we can use the inspector to figure out how to resize this this column to yield the measures we want. You can use any unit of measurement that you want. I chose to use the <code class="language-css">ch</code>  unit.</P>
-        <ul>
-          <li>
-            <button rel="desktop">Click here</button> to see our measure for <em>desktop</em>
-          </li>
-          <li>
-            <button rel="tablet">Click here</button> to see our measure for <em>tablet</em>
-          </li>
-          <li>
-            <button rel="mobile">Click here</button> to see our measure for <em>mobile</em>
-          </li>
-        </ul>
-        <p>Here I am setting the width of this column to either 75 characters, 55 characters or 35 characters.</p>
+        <P>Cool, so now we could use the inspector to figure out how to resize the width of this column to yield the measures we want.</P>
+        <p> 
+          <button rel="desktop">Click here</button> to set this column to <code class="language-css">max-width: 75ch</code>.
+        </p>
         <hgroup>
-          <h2>Sweet, things are looking better</h2>
-          <h3>it time to talk about a baseline grid</h3>
+          <h2>Sweet, everything is all lined up now right?</h2>
+          <h3>Wrong wrong wrong!</h3>
         </hgroup>
-        <p>A baseline grid, also known as a vertical grid, is a technique used for normalizing the distrobution of elements on the page. Following a strict baseline grid creates a reliable "vertical rhythm." I'd argue that you don't need to do this, but it can help you to easily figure out how space and size EVERYTHING on your web page. As a result, your content will look and feel frigity fresh. </p>
-        <p>I made another tool for setting web type to a baseline grid. I call it VRT, short for vertical rhythm. </p>
+        <p>Things look good, but unbeknownst to us, our spacing is all jacked up. We have completely ignored setting our type to a baseline grid. I know, things look good, but our vertical rhythm is all effed up! Time for another tool that I made called <strong>VRT</strong> (super short for vertical grid haha). </p>
         <p> 
           <button rel="vrt">Click here</button> to display the vertical grid.
         </p>
-        <p>Press the <code class="language-css">period </code>  key twice</p>
-        <pre class="language-css"><code>:root {
-  line-height: 1.5;
-  font-size: 20px;
-}
-
-
-</code></pre>
+        <hgroup>
+          <h2>Oh snap!</h2>
+          <h3>Nothing lines up to the grid!</h3>
+        </hgroup>
+        <p>A baseline grid, also known as a vertical grid, is a technique used for normalizing the distrobution of elements on the page. Following a strict baseline grid creates a reliable "vertical rhythm." I'd argue that you don't need to do this, but it can help you to easily figure out how to space and size EVERYTHING on your web page. And it will help your page to look and feel friggity fresh. </p>
+        <p>Many of us just space elements on the page as we see fit. That's totally fine. But we aren't going to do that today. We are going to wrestle the type and content into a baseline grid and get our rhythm on.</p>
+        <p> 
+          <button rel="fix-space">Click here</button>  to fix <strong>most</strong> of our spacing issues.
+        </p>
+        <p>We saw things move, but despite my efforts to correctly set the margin and padding, paragraph text still isn't centered within the baseline grid cells yet. In a moment we are going to scroll up to the top and back down again. Notice that once we get to the top, all the paragraph text looks perfectly set to the baseline grid cells.  However, after we scroll past the image, the text gets out of rhythm again. </p>
+        <p>Alright let's scroll to the top and when we scroll back down, notice that the image's height throws us off.</p>
+        <hgroup>
+          <h2>We are so close to being done</h2>
+          <h3>last type setting tool coming up...</h3>
+        </hgroup>
+        <p>Responsive images and media are the killers of vertical rhythm. Based on the user's device or resizing of the browser, our response images can end up at any given height. Despite our best efforts to set perfect type, this is where all of our efforts get derailed. To combat this issue I created another tool called <strong>RDM</strong> (rhythm) for resizing the height of any element to the nearest multiple of the baseline unit.</p>
+        <p> 
+          <button rel="rdm">Click here</button>  to get this train back on the tracks.
+        </p>
+        <hgroup>
+          <h2>EFFING DONE</h2>
+          <h3>and done</h3>
+        </hgroup>
+        <p>That all folks! You clicked this page into perfect vertical rhythm! Much respect! </p>
+        <p>There is more to typography that what we covered on this page, but this a strong position to start with. It's certainly more dedication to consistant spacing than the mass majority of sites online. <strong>rdmkit</strong> is simply a set of tools for helping with the challenge of setting type online. It wont do all the hard work for you—unless you want to use this starter kit. *this has not been tested through all browsers. For all I care, IE browsers can burn in hell! I would consider RDMKIT for progressive intentions only. I have no interest in making legacy browsers pixel perfect.</p>
+        <p>If you care to learn more checkout these other pages:</p>
+        <ul>
+          <li><a href="/install.html">Click here</a> to learn how to install <strong>RDMKIT</strong></li>
+          <li><a href="/cpl.html">Click here</a> to learn more about <strong>CPL</strong></li>
+          <li><a href="/mzr.html">Click here</a> to learn more about <strong>MZR</strong></li>
+          <li><a href="/vrt.html">Click here</a> to learn more about <strong>VRT</strong></li>
+          <li><a href="/rdm.html">Click here</a> to learn more about <strong>RDM</strong></li>
+          <li><a href="/more.html">Click here</a> to learn more about setting type on line</li>
+        </ul>
       </main>
+      <script src="/src.80dfb952.js"></script>
       <footer>
-        <h2>Citations</h2>
-        <p>The Elements of Typographic Style, Robert Bringhurst</p>
-        <h6>Typographer's task</h6>
-        <ul>
-          <li>The typogarpher's one essential task is to interpret and communicate the text (p 20)</li>
-          <li>Typography exists to honor text (p 17)</li>
-          <li>One of the principles of durable typography is always legibility (p 17)</li>
-          <li>Shape the page and frame the textblock so that it honors and reveals every element, every relationship between elements, and every logical nuance of the text. (p 23)</li>
-        </ul>
-        <h6>Choose face</h6>
-        <ul>
-          <li>Well-chosen word deserve well-chosen letters; these in their turn deserve to be set with affection, intelligence, knowledge and skill (p 18)</li>
-          <li>Choose a typeface or a group of faces that will honor and elucidate the character of the text. (p 22)</li>
-          <li>Allow the face to speak in its natural idiom</li>
-          <li>Choose faces whose individual  spirit and character is in keeping with the text. (p 99)</li>
-        </ul>
-        <h6>break rules</h6>
-        <ul>
-          <li>By all means break the rules, and break them beautifully, delibrately and well (p 10)</li>
-          <li>Surely typographers, like others, ought to be at liberty to follow or to blaze the trails they choose</li>
-        </ul>
-        <h6>Measure
-          <ul>
-            <li>Anything from 45 to 75 characters is widely regarded as a satisfactory length of line for a single-column page set in a serifed typeface in a text size. The 66-character line (counting both letters and spaces) is widely regarded as ideal. (p 26)</li>
-            <li>Longer measures need more lead than short ones. (p 37)</li>
-            <li>Whether oral or visual, longwindedness is very rarely a virtue.</li>
-          </ul>
-        </h6>
         <p>rdmkit</p>
       </footer>
     </div>
-    <script src="/src.80dfb952.js"></script>
   </body>
 </html>

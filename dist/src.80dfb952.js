@@ -153,9 +153,9 @@ module.exports = () => {
 };
 
 },{}],"../../node_modules/rdmkit-cpl/dist/index.js":[function(require,module,exports) {
-module.exports=(()=>{const t=document.createElement("div"),e=document.head,o=document.body,n={backgroundColor:"black",border:"none",color:"#0f0",fontFamily:"Trebuchet MS",fontSize:"20px",fontWeight:"bold",margin:0,padding:"10px 20px",position:"absolute",transition:"all .05s ease-in",top:0,left:0,opacity:0,willChange:"top, left, opacity"};!function(e,o){Object.assign(t.style,n)}();const i=document.createElement("style"),l=document.createTextNode("\n    ::selection {\n      background-color: #0f0;\n      color: black;\n    }\n  ");i.appendChild(l),e&&(e.appendChild(i),t.textContent="CPL",o.appendChild(t),document.addEventListener("selectionchange",function(t,e=1e3){let o;return function(){clearTimeout(o),o=setTimeout(()=>t.apply(this,arguments),e)}}(()=>{let e=window.getSelection(),o=e.toString().length,n=e.anchorNode.parentElement,{xPosition:i,yPosition:l}=function(t){if(t){let e=0,o=0;for(;t;)e+=t.offsetLeft+t.clientLeft,o+=t.offsetTop+t.clientTop,t=t.offsetParent;return{xPosition:e,yPosition:o}}return}(n);if(o<1)return t.style.top=0,t.style.left=0,void(t.style.opacity=0);t.textContent=`CPL: ${o}`,t.style.top=l-t.offsetHeight+"px",t.style.left=i+"px",t.style.opacity=1})))});
+module.exports=(()=>{const t=document.createElement("div"),e=document.head,o=document.body,n={backgroundColor:"black",border:"none",color:"#0f0",fontFamily:"Trebuchet MS",fontSize:"20px",fontWeight:"bold",margin:0,padding:"10px 20px",position:"absolute",transition:"all .05s ease-in",top:-100,left:-100,opacity:0,willChange:"top, left, opacity"};!function(e,o){Object.assign(t.style,n)}();const i=document.createElement("style"),l=document.createTextNode("\n    ::selection {\n      background-color: #0f0;\n      color: black;\n    }\n  ");i.appendChild(l),e&&(e.appendChild(i),t.textContent="CPL",o.appendChild(t),document.addEventListener("selectionchange",function(t,e=1e3){let o;return function(){clearTimeout(o),o=setTimeout(()=>t.apply(this,arguments),e)}}(()=>{let e=window.getSelection(),o=e.toString().length,n=e.anchorNode.parentElement,{xPosition:i,yPosition:l}=function(t){if(t){let e=0,o=0;for(;t;)e+=t.offsetLeft+t.clientLeft,o+=t.offsetTop+t.clientTop,t=t.offsetParent;return{xPosition:e,yPosition:o}}return}(n);if(o<1)return t.style.top=-100,t.style.left=-100,void(t.style.opacity=0);t.textContent=`CPL: ${o}`,t.style.top=l-t.offsetHeight+"px",t.style.left=i+"px",t.style.opacity=1})))});
 },{}],"../../node_modules/rdmkit-vrt/dist/index.js":[function(require,module,exports) {
-module.exports=(()=>{const e=document.createElement("div");e.classList.add("vrt__box");let t=[],n=!1;function o(){let t=document.createDocumentFragment(),n=(o=function(){let e=getComputedStyle(document.documentElement),{lineHeight:t}=e;return t}(),parseInt(o,10));var o;for(let e=0,o=Math.floor(document.documentElement.scrollHeight/n);e<o;e++){let e=document.createElement("div");e.className="vrt__row",e.style.height=n+"px",t.appendChild(e)}e.appendChild(t)}document.addEventListener("keydown",function(d){if(t.push(d.keyCode),t.toString().includes("188,188")&&!1===n)o(),document.body.appendChild(e),e.style.zIndex=1e3,e.classList.add("above"),t=[],n=!0;else if(t.toString().includes("190,190")&&!1===n)o(),document.body.appendChild(e),e.style.zIndex=-1e3,e.classList.remove("above"),t=[],n=!0;else{if(!t.toString().includes("191")||!0!==n)return;e.classList.remove("above"),document.body.removeChild(e),t=[],n=!1}});const d=document.createElement("style"),l=document.createTextNode("\n    .vrt__box {\n      left: 0;\n      top: 0;\n      position: absolute;\n      width: 100%;\n    }\n\n    .vrt__row {\n      box-shadow: inset 0px -1px 0px hsla(300deg,100%,50%, 1);\n    }\n    \n    .vrt__box.above .vrt__row {\n      box-shadow: inset 0px -1px 0px hsla(200deg,100%,50%, 1);\n    }\n  ");d.appendChild(l),document.head.appendChild(d)});
+module.exports=(()=>{const e=document.createElement("div");e.classList.add("vrt__box");let t=[],n=!1;function o(){let t=document.createDocumentFragment(),n=(o=function(){let e=getComputedStyle(document.documentElement),{lineHeight:t}=e;return t}(),parseInt(o,10));var o;for(let e=0,o=Math.floor(document.documentElement.scrollHeight/n);e<o;e++){let e=document.createElement("div");e.className="vrt__row",e.style.height=n+"px",t.appendChild(e)}e.appendChild(t)}function d(){o(),document.body.appendChild(e),e.style.zIndex=1e3,e.classList.add("above"),t=[],n=!0}function l(){o(),document.body.appendChild(e),e.style.zIndex=-1e3,e.classList.add("below"),t=[],n=!0}function i(){for(;e.firstChild;)e.removeChild(e.firstChild);e.classList.remove("above"),document.body.removeChild(e),t=[],n=!1}document.addEventListener("keydown",function(e){if(t.push(e.keyCode),t.toString().includes("188,188")&&!1===n)d();else if(t.toString().includes("190,190")&&!1===n)l();else{if(!t.toString().includes("191")||!0!==n)return;i()}});const s=document.createElement("style"),r=document.createTextNode("\n    .vrt__box {\n      left: 0;\n      top: 0;\n      position: absolute;\n      width: 100%;\n    }\n\n    .vrt__row {\n      box-shadow: inset 0px -1px 0px hsla(300deg,100%,50%, 1);\n    }\n    \n    .vrt__box.above .vrt__row {\n      box-shadow: inset 0px -1px 0px hsla(200deg,100%,50%, 1);\n    }\n  ");return s.appendChild(r),document.head.appendChild(s),{aboveGrid:d,belowGrid:l,closeGrid:i}});
 },{}],"../../node_modules/rdmkit-rdm/dist/index.js":[function(require,module,exports) {
 module.exports=(e=>{function t(e){let t=document.querySelectorAll(e),n=0,o=parseFloat(function(){let e=getComputedStyle(document.documentElement),{lineHeight:t}=e;return t}(),10);for(let e of t){let t=e.offsetHeight;n=Math.ceil(t/o)*o-o,e.style.maxHeight=n+"px"}}t(e),window.addEventListener("resize",function(e,t=1e3){let n;return function(){clearTimeout(n),n=setTimeout(()=>e.apply(this,arguments),t)}}(()=>{t(e)}))});
 },{}],"../../node_modules/prismjs/prism.js":[function(require,module,exports) {
@@ -1052,11 +1052,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // mzr();
 (0, _rdmkitCpl.default)();
-(0, _rdmkitVrt.default)(); // rdm(".hero");
+var runVert = (0, _rdmkitVrt.default)(); // rdm(".hero");
+// Spacing
 
 var spacing = document.querySelector("[rel='spacing']");
 var pagraphs = document.querySelectorAll("p, ul");
-spacing.addEventListener("click", function () {
+spacing.addEventListener("click", spaceText);
+
+function spaceText() {
   var _iteratorNormalCompletion = true;
   var _didIteratorError = false;
   var _iteratorError = undefined;
@@ -1080,10 +1083,14 @@ spacing.addEventListener("click", function () {
       }
     }
   }
-});
+} // Style headings
+
+
 var hierarchy = document.querySelector("[rel='hierarchy']");
 var hgroups = document.querySelectorAll("hgroup");
-hierarchy.addEventListener("click", function () {
+hierarchy.addEventListener("click", styleHeadings);
+
+function styleHeadings() {
   var _iteratorNormalCompletion2 = true;
   var _didIteratorError2 = false;
   var _iteratorError2 = undefined;
@@ -1107,11 +1114,15 @@ hierarchy.addEventListener("click", function () {
       }
     }
   }
-});
+} // Show MZR
+
+
 var measure = document.querySelector("[rel='mzr']");
 var measureP = document.querySelector("[data-mzr]");
 var mzrOn = false;
-measure.addEventListener("click", function () {
+measure.addEventListener("click", showMZR);
+
+function showMZR() {
   if (mzrOn === false) {
     (0, _rdmkitMzr.default)();
     mzrOn = true;
@@ -1119,37 +1130,99 @@ measure.addEventListener("click", function () {
     measureP.textContent = "I'd say that the biggest issue right now is that the text touches both sides of the screen and that is making the paragraph text look like it's running wild on the page. We need margins. In print we need margins for giving our hands a place to hold a book without rubbing off letters. In print margins give us space to write notes. They prevent text from falling too close to where the page is bound which would make it hard to read. However, online, we simply need margins for creating pleasing line-lengths and space for all the other parts of the site that need room to breath. But how much margin do we need? And what about responsive matters? Let's say that we want a measure of ~40 characters on a mobile screen, ~80 characters on a tablet and ~100 on a desktop. I made another tool called MZR (measure) to be able to vidualize this. To make MZR work we need to add a data-attribute that looks like data-mzr=\"40/80/100\" this to any element in our code.";
     mzrOn = false;
   }
-});
+}
+
 var root = document.documentElement;
 var desktop = document.querySelector("[rel='desktop']");
 var tablet = document.querySelector("[rel='tablet']");
 var mobile = document.querySelector("[rel='mobile']");
-desktop.addEventListener("click", function () {
-  root.classList.toggle("desktop");
-  root.classList.remove("tablet");
-  root.classList.remove("mobile");
-});
-tablet.addEventListener("click", function () {
-  root.classList.toggle("tablet");
-  root.classList.remove("desktop");
-  root.classList.remove("mobile");
-});
-mobile.addEventListener("click", function () {
-  root.classList.toggle("mobile");
-  root.classList.remove("tablet");
-  root.classList.remove("desktop");
-}); // const vrtBtn = document.querySelector("[rel='vrt']");
-// let vrtOn = false;
-// vrtBtn.addEventListener("click", function() {
-//   if (vrtOn === false) {
-//     vrt.toggleVrtGrid({ key: "comma" });
-//     vrt.toggleVrtGrid({ key: "comma" });
-//     vrtOn = true;
-//   } else {
-//     vrt.toggleVrtGrid({ key: "period" });
-//     vrtOn = false;
-//   }
+desktop.addEventListener("click", toggleMargins);
+
+function toggleMargins() {
+  root.classList.toggle("desktop"); // root.classList.remove("tablet");
+  // root.classList.remove("mobile");
+  // I'm not sure if I want to bring these back later
+  // tablet.addEventListener("click", function() {
+  //   root.classList.toggle("tablet");
+  //   root.classList.remove("desktop");
+  //   root.classList.remove("mobile");
+  // });
+  // mobile.addEventListener("click", function() {
+  //   root.classList.toggle("mobile");
+  //   root.classList.remove("tablet");
+  //   root.classList.remove("desktop");
+} //   // let { top } = offset(mobile);
+//   // console.log(top);
+//   //document.documentElement.scrollTop = document.body.scrollTop = 8000;
+//   // mobile.scrollIntoView({behavior: "smooth", block: "center"});
 // });
+// function offset(el) {
+//   var rect = el.getBoundingClientRect();
+//   var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+//   var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+//   return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
+// }
+// Turn on VRT grid
+
+
+var vrtBtn = document.querySelector("[rel='vrt']");
+vrtBtn.addEventListener("click", runVert.belowGrid); // Fix most of the spacing
+
+var fixSpace = document.querySelector("[rel='fix-space']");
+fixSpace.addEventListener("click", toggleFixSpace);
+
+function toggleFixSpace() {
+  root.classList.toggle("fix-space");
+} // Enable RDM to resize elements
+
+
+var rdmBtn = document.querySelector("[rel='rdm']");
+rdmBtn.addEventListener("click", function () {
+  (0, _rdmkitRdm.default)("figure");
+  runVert.closeGrid();
+  runVert.belowGrid();
+});
+var onBtn = document.querySelector("[rel='on']");
+var onActive = false;
+onBtn.addEventListener("click", function () {
+  if (onActive === false) {
+    runAll();
+    onActive = true;
+    onBtn.textContent = "on";
+  } else {
+    killAll();
+    onActive = false;
+    onBtn.textContent = "off";
+  }
+});
+
+function runAll() {
+  spaceText();
+  styleHeadings();
+  showMZR();
+  toggleMargins();
+  toggleFixSpace(); // We gotta wait for the column to resize before
+  // we resize the image
+
+  setTimeout(function () {
+    (0, _rdmkitRdm.default)("figure");
+  }, 500); // We need to wait for the column and image
+  // to resize before showing the grid.
+
+  setTimeout(function () {
+    runVert.belowGrid();
+  }, 1000);
+}
+
+function killAll() {
+  spaceText();
+  styleHeadings();
+  showMZR();
+  toggleMargins();
+  toggleFixSpace();
+  (0, _rdmkitRdm.default)();
+  runVert.closeGrid();
+}
 },{"rdmkit-mzr":"../../node_modules/rdmkit-mzr/src/index.js","rdmkit-cpl":"../../node_modules/rdmkit-cpl/dist/index.js","rdmkit-vrt":"../../node_modules/rdmkit-vrt/dist/index.js","rdmkit-rdm":"../../node_modules/rdmkit-rdm/dist/index.js","prismjs":"../../node_modules/prismjs/prism.js"}],"../../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -1177,7 +1250,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53170" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50064" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

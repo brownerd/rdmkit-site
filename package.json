@@ -18,10 +18,10 @@
   "license": "ISC",
   "dependencies": {
     "prismjs": "^1.15.0",
-    "rdmkit-cpl": "^1.0.9",
+    "rdmkit-cpl": "^1.0.10",
     "rdmkit-mzr": "^1.0.5",
     "rdmkit-rdm": "^1.0.0",
-    "rdmkit-vrt": "^1.0.4"
+    "rdmkit-vrt": "^1.0.6"
   },
   "devDependencies": {
     "parcel": "^1.11.0",
