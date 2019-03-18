@@ -1,7 +1,7 @@
 {
-  "name": "RDMKIT",
+  "name": "rdmkit-site",
   "version": "1.0.0",
-  "description": "RDMKIT is a tool for creating better web typography and vertical rhythm.",
+  "description": "RDMKIT is a bunch of tools for setting type online and managing a strict baseline grid.",
   "main": "index.js",
   "scripts": {
     "dev": "parcel src/pug/index.pug --open 'google chrome canary'",

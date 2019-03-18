@@ -1,0 +1,65 @@
+# Notes
+
+#image: node:10.15.1
+image: node:latest
+
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  # - test
+  - build
+  - deploy
+  - killcache
+
+build_prod:
+  stage: build
+
+  before_script:
+  #- npm install -g parcel elm pug-cli --unsafe-perm=true --allow-root
+    - npm install -g parcel pug-cli --unsafe-perm=true
+
+  script:
+    - npm install
+    - npm run build
+    # - elm make src/*elm —optimize —output==public/index
+
+  artifacts:
+    paths:
+      - dist/
+
+  only:
+   - master
+
+variables:
+  AWS_DEFAULT_REGION: us-east-1
+  # BUCKET_NAME: 
+
+deploy_production:
+  image: python:latest
+  stage: deploy
+  
+  dependencies:
+    - build_prod
+
+  script:
+    - pip install awscli
+    - aws s3 cp dist s3://${BUCKET_NAME}/ --recursive
+
+  environment:
+    name: review/${CI_COMMIT_REF_SLUG}
+    url: https://${BUCKET_NAME}.s3-website.${AWS_DEFAULT_REGION}.amazonaws.com/master
+  only:
+   - master 
+
+invalidate-cache:
+  image: python:latest
+  stage: killcache
+
+  script:
+    - pip install awscli
+    - aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_ID} --paths /*
+
+  only:
+   - master
