@@ -1,0 +1,427 @@
+extends layout/layout-fun.pug
+
+block content
+  section(class="layer")
+    div(class="feature resize")
+      hgroup
+        h2(class="headline") type<wbr>set<wbr>ting
+        h3(class="subhead") let's try to set <s>every</s> most HTML5 tags
+
+
+  section(class="layer")
+    .layer__container
+      .section__block
+        h6(class="section__heading") h1 h2 h3 h4 h5 h6   
+      .section__content
+        hgroup
+          h2(class="section__minihead") Let's rethink headings
+        p As you all know, we have six heading tags <code class="language-html">h1 h2 h3 h4 h5 h6</code>. We understand an <code class="language-html">h1</code> has a higher semantic <em>importance</em> than an <code class="language-html">h2</code>. But this doesn't mean that an <code class="language-html">h1</code> must be styled bolder or bigger than an <code class="language-html">h3</code>. While we should use heading tags semantically, we can style these headings how ever we want. So, I'm not going to put forth a scale where each heading is incrementally bigger than the next. I'm just going to style headings to best compliment the content and context of the copy. 
+
+  section(class="layer")
+    .layer__container-flip
+      .section__block
+        h6(class="section__heading") p 
+      .section__content
+        hgroup
+          h2(class="section__minihead") Paragraphs are the backbone of our content
+        p Our baseline efforts seek to keep paragraph text centered in each row of our baseline grid. 
+
+  section(class="layer bg")
+    div(class="layer__container")
+      .section__block
+        h6(class="section__heading") blockquote cite 
+      .section__content
+        hgroup
+          h2(class="section__minihead") 95%
+        blockquote 95% of the information on the web is written language. It is only logical to say that a web designer should get good training in the main discipline of shaping written information, in other words: Typography.
+
+        cite
+          a(class="button", href="https://ia.net/topics/the-web-is-all-about-typography-period") Oliver Reichenstein
+
+  section(class="layer")
+    .layer__container-flip
+      .section__block
+        h6(class="section__heading") ul ol li dl dd dt 
+      .section__content
+        hgroup
+          h2(class="section__minihead") Lists
+        p Lists are typically indented. I prefer them unintented. Either way is fine. For unordered lists I like to use the lighter <code class="language-css">circle</code> instead of the heavier <code class="language-css">disc</code>. I consider lists to be core text. I try to keep all my list items aligned to the baseline grid.
+
+        h3 Unordered list
+        ul
+          li learn html
+          li learn css
+          li learn js
+          li learn git
+        
+        h3 Ordered list
+        ol
+          li <code class="language-bash">git status</code>
+          li <code class="language-bash">git add .</code>
+          li <code class="language-bash">git commit -m ":)"</code>
+
+        h3 Definition list
+        dl
+          dt Definition List Title
+          dd This is a definition list division.
+
+  section(class="layer")
+    .layer__container
+      .section__block
+        h6(class="section__heading") hr
+      .section__content
+        hgroup
+          h2(class="section__minihead") Horizontal rule
+        p I haven't used the <code class="language-html">hr</code> in ages. I'm gonna leave it at that. Here I'm using the <code class="language-css">outline</code> property to keep the <code class="language-html">hr</code> from having layout that throws of the vertical rhythm.
+
+        hr
+
+  section(class="layer bg")
+    .layer__container-flip
+      .section__block
+        h6(class="section__heading") table thead<br/>th tr td<br/>tbody tfoot
+      .section__content
+        hgroup
+          h2(class="section__minihead") Tables
+        p I haven't used a <code class="language-html">table</code> in ages either. But here's how to do it.
+
+        table
+          caption rdmkit size
+          thead
+            tr
+              th names
+              th sizes
+          tfoot
+            tr
+              th rdmkit
+              th :)
+          tbody
+            tr
+              td cpl
+              td 1 kb
+            tr
+              td mzr
+              td 352 bytes
+            tr
+              td vrt
+              td 708 bytes
+            tr
+              td rdm
+              td 2 kb
+        footer
+
+  section(class="layer")
+    .layer__container
+      .section__block
+        h6(class="section__heading") code pre
+      .section__content
+        hgroup
+          h2(class="section__minihead") Prismjs for code highlighting
+        p I'm a fan of using <a href="https://prismjs.com/">prismjs</a> for code highlighting. It's super customizable. You've already seen examples of this throughout the site.
+
+        pre.language-js
+          code.
+            // index.js
+            const str = `
+              P R E F O R M A T T E D T E X T
+              ! " # $ % & ' ( ) * + , - . /
+              0 1 2 3 4 5 6 7 8 9 : ; < = > ?
+              @ A B C D E F G H I J K L M N O
+              P Q R S T U V W X Y Z [ \ ] ^ _
+              ` a b c d e f g h i j k l m n o
+              p q r s t u v w x y z { | } ~ 
+              `;  
+
+  section(class="layer")
+    .layer__container-flip
+      .section__block
+        h6(class="section__heading") a strong em b i u del ins s sup sub small abbr q cite dfn mark var time kbd
+      .section__content
+        hgroup
+          h2(class="section__minihead") Inline element bonanza
+        
+        p <code class="language-html">a</code> There is a gang of <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements#Elements">inline tags</a>.
+          | 
+          <code class="language-html">strong</code> The strong tag is used to indicate <strong>strong importance</strong>.
+          | 
+          <code class="language-html">em</code> The em tag is for <em>added emphasis</em>.
+          | 
+          <code class="language-html">b</code> The <b>b element</b> is stylistically different text from normal text, without any special importance.
+          | 
+          <code class="language-html">i</code> The <i>i element</i> is text that is offset from the normal text.
+          | 
+          <code class="language-html">u</code> The <u>u element</u> is text with an unarticulated, though explicitly rendered, non-textual annotation.
+          | 
+          <code class="language-html">del</code> <del>This text is deleted.</del>
+          | 
+          <code class="language-html">ins</code> <ins>This text is inserted.</ins>
+          | 
+          <code class="language-html">s</code> <s>This text has a strikethrough</s>.
+          | 
+          <code class="language-html">sup</code> Coca-Cola<sup>®</sup> Nike<sup>©</sup>.
+          | 
+          <code class="language-html">sub</code> Water - H<sub>2</sub>O and Sugar - C<sub>12</sub>H<sub>22</sub>O<sub>11</sub>.
+          | 
+          <code class="language-html">small</code> <small>This text is small for fine print, etc.</small>
+          | 
+          <code class="language-html">abbr</code> <abbr title="Characters-per-line">CPL</abbr>
+          | 
+          <code class="language-html">q</code> <q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This text is a short inline quotation.</q>
+          | 
+          <code class="language-html">cite</code> <cite>This is a citation.</cite>
+          | 
+          <code class="language-html">dfn</code> <dfn>dfn element</dfn> indicates a definition.
+          | 
+          <code class="language-html">mark</code> <mark>mark element</mark> indicates a highlight.
+          | 
+          <code class="language-html">var</code> The <var>variable element</var>, such as <var>x</var> = <var>y</var>.
+          | 
+          <code class="language-html">time</code> <time datetime="2013-04-06T12:32+00:00">2 weeks ago</time>
+          | 
+          <code class="language-html">kbd</code> <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd>
+
+  section(class="layer bg")
+    .layer__container
+      .section__block
+        h6(class="section__heading") img figure
+      .section__content
+        hgroup
+          h2(class="section__minihead") Image gallery
+        
+        .gallery
+          figure(class="resize")
+            img(src="../images/hood-1.jpg", alt="")
+          figure(class="resize")
+            img(src="../images/rocks.jpg", alt="")
+          figure(class="resize")
+            img(src="../images/small-guy.jpg", alt="")
+          figure(class="resize")
+            img(src="../images/hood-1.jpg", alt="")
+          figure(class="resize")
+            img(src="../images/rocks.jpg", alt="")
+          figure(class="resize")
+            img(src="../images/small-guy.jpg", alt="")
+          figure(class="resize")
+            img(src="../images/hood-1.jpg", alt="")
+          figure(class="resize")
+            img(src="../images/rocks.jpg", alt="")
+          figure(class="resize")
+            img(src="../images/small-guy.jpg", alt="")
+
+  section(class="layer")
+    .layer__container-flip
+      .section__block
+        h6(class="section__heading") iframe
+
+      .section__content
+        hgroup
+          h2(class="section__minihead") Embeded video
+          p Here is a cool design nerd video called Landschaft mit haus. I used this as the inspiration for a weather app called <a href="https://cssweather.com">cssweather</a> where all the weather conditions are made from css gradients only.
+
+        div(class="resize")
+          iframe(src="https://player.vimeo.com/video/25026253?byline=0&portrait=0" width="640" height="512" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen)
+
+  section(class="layer")
+    .layer__container
+      .section__block
+        h6(class="section__heading") canvas SVG 
+      .section__content
+        hgroup
+          h2(class="section__minihead") HTML5 Canvas and Scaleable Vector Graphics
+          p Haha! Nothing fancy here. 
+
+        div(class="resize")
+          canvas(id="canvas")
+          script.
+            var context = document.getElementById("canvas").getContext("2d");
+
+            var width = 125;  // Triangle Width
+            var height = 105; // Triangle Height
+            var padding = 20;
+
+            // Draw a path
+            context.beginPath();
+            context.moveTo(padding + width/2, padding);        // Top Corner
+            context.lineTo(padding + width, height + padding); // Bottom Right
+            context.lineTo(padding, height + padding);         // Bottom Left
+            context.closePath();
+
+            // Fill the path
+            context.fillStyle = "#ffc821";
+            context.fill();
+        div(class="resize")
+          svg(xmlns="http://www.w3.org/2000/svg")
+              line(stroke="#000000" stroke-width="1" x1='0' y1='100%' x2='100%' y2='0')
+              line(stroke="#000000" stroke-width="1" x1='0' y1='0' x2='100%' y2='100%')
+          
+
+  section(class="layer bg")
+    .layer__container-flip
+      .section__block
+        h6(class="section__heading") select type='checkbox' type='radio' optgroup option textarea
+      .section__content
+        hgroup
+          h2(class="section__minihead") Inputs 1
+          p There are sooo many input types. Let's break this into three parts.
+
+        fieldset
+          legend Select menus
+          p
+            label(for='select') Select
+            select#select
+              optgroup(label='Option Group')
+                option Option One
+                option Option Two
+                option Option Three
+        
+        fieldset
+          legend Checkboxes
+          ul.list.list--bare
+            li
+              label(for='checkbox1')
+                input#checkbox1(name='checkbox', type='checkbox', checked='checked')
+                |  Choice A
+            li
+              label(for='checkbox2')
+                input#checkbox2(name='checkbox', type='checkbox')
+                |  Choice B
+            li
+              label(for='checkbox3')
+                input#checkbox3(name='checkbox', type='checkbox')
+                |  Choice C
+        
+        fieldset
+          legend Radio buttons
+          ul.list.list--bare
+            li
+              label(for='radio1')
+                input#radio1.radio(name='radio', type='radio', checked='checked')
+                |  Option 1
+            li
+              label(for='radio2')
+                input#radio2.radio(name='radio', type='radio')
+                |  Option 2
+            li
+              label(for='radio3')
+                input#radio3.radio(name='radio', type='radio')
+                |  Option 3
+
+        fieldset(class="resize")
+          legend Textareas
+          div
+            textarea(rows=9 placeholder='Enter your message here')
+
+
+  section(class="layer")
+    .layer__container
+      .section__block
+        h6(class="section__heading") type='text' type='password' type='url' type='email' type='tel' type='search' type='number' type='color' type='range' type='date'
+      .section__content
+        hgroup
+          h2(class="section__minihead") Inputs 2
+
+        fieldset
+          legend Input fields
+          ul
+            li
+              label(for='input__text') Text Input
+              input#input__text(type='text', placeholder='Text Input')
+            li
+              label(for='input__password') Password
+              input#input__password(type='password', placeholder='Type your Password')
+            li
+              label(for='input__webaddress') Web Address
+              input#input__webaddress(type='url', placeholder='http://yoursite.com')
+            li
+              label(for='input__emailaddress') Email Address
+              input#input__emailaddress(type='email', placeholder='name@email.com')
+            li
+              label(for='input__phone') Phone Number
+              input#input__phone(type='tel', placeholder='(999) 999-9999')
+            li
+              label(for='input__search') Search
+              input#input__search(type='search', placeholder='Enter Search Term')
+            li
+              label(for='input__text2') Number Input
+              input#input__text2(type='number', placeholder='Enter a Number')
+            li
+              label.error(for='input__text3') Error
+              input#input__text3.is-error(type='text', placeholder='Text Input')
+            li
+              label.valid(for='input__text4') Valid
+              input#input__text4.is-valid(type='text', placeholder='Text Input')
+
+        fieldset#forms__html5
+          legend HTML5 inputs
+          lu
+            li
+              label(for='ic') Color input
+              input#ic(type='color', value='#000000')
+            li
+              label(for='in') Number input
+              input#in(type='number', min='0', max='10', value='5')
+            li
+              label(for='ir') Range input
+              input#ir(type='range', value='10')
+            li
+              label(for='idd') Date input
+              input#idd(type='date', value='1970-01-01')
+            li
+              label(for='idm') Month input
+              input#idm(type='month', value='1970-01')
+            li
+              label(for='idw') Week input
+              input#idw(type='week', value='1970-W01')
+            li
+              label(for='idt') Datetime input
+              input#idt(type='datetime', value='1970-01-01T00:00:00Z')
+            li(class="sorrybro")
+              label(for='idtl') Datetime-local input
+              input#idtl(type='datetime-local', value='1970-01-01T00:00')
+
+  section(class="layer")
+    .layer__container-flip
+      .section__block
+        h6(class="section__heading") type='submit' type='button' type='reset' type='submit'
+      .section__content
+        hgroup
+          h2(class="section__minihead") Inputs 3
+
+        fieldset#forms__action
+          legend Action buttons
+          p
+            input(type='submit', value='<input type=submit>')
+          p
+            input(type='button', value='<input type=button>')
+          p
+            input(type='reset', value='<input type=reset>')
+          p
+            input(type='submit', value='<input disabled>', disabled='')
+
+  section(class="layer end")
+    .layer__container
+      .section__block
+        h6(class="section__heading") Fin
+      .section__content
+        hgroup
+          h2(class="section__minihead") We have reached the end
+
+        p So, that was super easy to do. The css in RDMKIT is dead simple and only a few lines of code. Sticking to a baseline rhythm isn't difficult to do when you follow these practices. And where images, videos and other flexible elements break the baseline grid, we can use RDM to get everything back on track.
+
+        p Props to:
+        ul
+          li
+            a(href='http://github.com/cbracco/html5-test-page') @cbracco and the html5-test-page
+          li
+            a(href='https://www.smashingmagazine.com/2012/12/css-baseline-the-good-the-bad-and-the-ugly/') Espen Brunborg
+          li
+            a(href='https://ia.net/topics/the-web-is-all-about-typography-period') Oliver Reichenstein 
+          li
+            a(href='https://24ways.org/2006/compose-to-a-vertical-rhythm') Richard Rutter
+          li
+            a(href='http://lamb.cc/typograph/') Iain Lamb (set body font size to 100%)
+          li
+            a(href="https://www.youtube.com/channel/UC7TizprGknbDalbHplROtag") Jen Simmons
+          li
+            a(href="https://cssgrid.io/") Wes Bos
+          

@@ -1,0 +1,325 @@
+extends layout/layout.pug
+
+//- .hero
+//-   div(class="hero__heading") RDMKIT
+
+block content
+  main(class="main__column")
+    hgroup
+      h2(class="main__heading") MORE
+      h3(class="main__subhead") than you care to know, maybe...
+
+    p I have A LOT more to say about setting type online. I've been at this for a long effing time. Here are a few tips and opinions. Also, you can toggle the VRT baseline grid off an on at any point while viewing this site. Just press <code class="language-css">..</code> display the grid and <code class="language-css">/</code> to close the grid. 
+
+    hgroup
+      h2(class="main__heading") Keep your math simple, or else...
+      h3(class="main__subhead") The browser will kill your baseline efforts!
+
+    p I tested using fractional numbers in Chrome and you might be surprised to know that only quarters performed as expected. Thus widths/heights set at 100.25px, 100.5px, and 100.75px renderd in the browser as expected. However, any other fractional number did not like 100.1px, 100.2px, 100.3px, 100.4px, 100.6px, 100.7px, 100.8px and 100.9px. I made a <a href="https://jsbin.com/vupinoj/edit?css,console,output">JSBIN to demonstrate this</a>. The heights set in css didn't match the rendered heights in the browser unless the height is a whole number or a number that ends in .25, .5. or .75. I got the same results in Safari, so it's gotta be a webkit thing. However, in Firefox, all css heights matched the rendered heights.
+
+    p This is why I use even numbers for base-font sizes and 1.5 for line-height. This keeps all the math to whole numbers or perfect quarters which seems to yield consistent results. Otherwise, rounding issues kill all of your efforts to maintain vertical rhythm.
+
+    hgroup
+      h2(class="main__heading") REMs
+      h3(class="main__subhead") I love the rem and I hate em
+
+    p A <code class="language-css">rem</code> is a "root em." It is a "relative" measurement used in CSS. It is a measurement that is "relative" to the "font-size" you assign to the "root element." The root element is the document root. And the document root is the <code class="language-css">html</code> tag. In css you can select the document root using the <code class="language-css">html {}</code> selector or the <code class="language-css">:root {}</code> pseudo selector. Both select the same thing, however <code class="language-css">:root</code> has a higher specificity. So, using it beats out styles set on the <code class="language-css">html</code> selector according to <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:root">MDN Web Docs</a>.
+
+    p Geez. There's always so much to unwind in web development. So, by making this setting <code class="language-css">:root { font-size: 20px; }</code>, I have created a "base" font-size that I can use through out the rest of the web page. I can refer to this base font-size by using the <code class="language-css">rem</code> unit. <code class="language-css">1rem</code> is equal to <code class="language-css">20px</code> now. 1.5rem = 30px (1.5 * 20px). This allows me to have a single source of truth for relatively sizing anything I need to style.
+
+    p I hate using the <code class="language-css">em</code> unit becasue they quickly get out of hand. An <code class="language-css">em</code> is relative to a parent element's <code class="language-css">font-size</code> setting. This is confusing already. My point is that <code class="language-css">em</code> units are easy to break. If I set the <code class="language-css">:root</code> to <code class="language-css">20px</code> and then set my paragraphs to be <code class="language-css">1em</code>, then I have a paragraph set at <code class="language-css">20px</code>. But let's say that a dev later sets <code class="language-css">font-size: 16px;</code> on the <code class="language-css">article</code> tag holding that paragraph. Now, that paragraph is going to change from <code class="language-css">20px</code> to <code class="language-css">16px</code> because an <code class="language-css">em</code> is relative to the <code class="language-css">font-size</code> set on the nearest parent. I don't like this. It means that any introduction of a <code class="language-css">font-size</code> setting can break the intended font sizes of all the elements nested in that parent.
+
+    p I also hate seeing stylesheets where I find stuff like <code class="language-css">font-size: 1.1304569685em</code>. This is effing crazy. No one wants to touch that. We need to do all we can to simplify our css. Using insane measurements isn't helping others to work with our styles confidently.
+
+    hgroup
+      h2(class="main__heading") This isn't print
+      h3(class="main__subhead") Let it go!
+
+    p The nature of print is different from the nature of the web, we should take a moment to reasses how the typography could/should be different between the two. 
+    
+    h3(class="main__subbold") Indentation
+    p Indenting paragraphs does not need to be done online. In print, the ink and paper has a price. It print, you must do all you can to save on printing costs. Could you imagine how much more paper a book would need if you used full line breaks between paragraphs like we do on the web? And then imagine the publishing cost to print all of those books. A little indent is all we need in print to show the beginning of a paragraph and to save a crap ton of paper, money and weight. However, online, we have infinite vertical scrolling space. We can afford to make full line breaks with no down sides. 
+
+    p I'm not sure at what point we diverged from using indentation to style paragraphs, but that practice is dead online. So, I just think it looks weird when I see paragraph indentation online. It's purpose is minimal on the web.
+
+    h3(class="main__subbold") Quotation marks
+    p I feel like no one knows that there is a difference between which type of quotation marks to use. It's as if the two kinds of marks are just considered to be different fonts. If you want to know more about quotation marks, <a href="https://prowebtype.com/seeing-typographic-details/">read this</a>. Personally, I understand the difference, but I am not offended nor confused when the wrong quotations mark are used. 
+
+    h3(class="main__subbold") Baseline / vertical rhythm
+    p This isn't important either. I know I made some tools to help make this easier. However, it is not necessary. I'd argure that a baseline grid is necessary in print where you need to have the text on opposing pages line up. We don't have this constraint online. Following a strict baseline rhythm online isn't going to save the world or make it 10x more legible for users. Personally, I just wish that browsers made it super easy to follow a strict baseline grid. But they didn't, so I tried my hand at this.
+
+    h3(class="main__subbold") Margins
+    p In print we need margins for protecting the text and writing notes. You don't want your fingers to rub the ink off the page. You don't want damaged edges of pages to also destroy the text. You don't want the text running all the way into the binding of the book where it would be hard to see. In print, you also need margins for utility. Margins also provide room for additional info or notes. 
+
+    p Online, we only need margins for making decent measures and keeping the text off the edges of the browser window. You don't have to use margins online. Bad typesetting is not going to keep us from finding what we need on Wikipedia or any other site for that matter.
+
+    h3(class="main__subbold") List positioning
+    p Should lists be nested? We are so used to seeing nested lists, that it's weird to see lists that are flush with the main content. I think nesting lists is totally fine online. I don't like to nest my lists, but I'm not going to pitch a fit if my client wants nested lists. It's not even worth the argument or explanation. 
+
+    h3(class="main__subbold") Visual type scale
+    p I don't think there needs to be a mathematic or musical science to the setting of font sizes. You are free to do what you want. Here are some more articles about type scale <a href="https://type-scale.com/">A Visual Type Scale</a> <a href="http://retinart.net/typography/typographicscale/">Typographic Scale</a>. And remember, some fractional font-sizes could wreck your baseline efforts. 
+
+    h3(class="main__subbold") Golden ratio
+    p You can try, but you might not get accurate results as the browser could round off any fractional inputs besides quarters. And if it's not a perfect golden ratio, then it's <em>goldenish</em> ratio. But if the GR is your thing, here are a few resources to explore: <a href="https://grtcalculator.com/">Golden Ratio Typography (GRT) Calculator</a> and <a href="https://github.com/jonikorpi/Golden-Grid-System">The Golden Grid System</a>.
+
+    h3(class="main__subbold") Fonts or typefaces?
+    p Amongst type nerds say typeface. Amongst everyone else keep saying font. I'm going to use the two interchangeably. Read this to learn more about the difference between the two: <a href="https://www.fastcompany.com/3028971/whats-the-difference-between-a-font-and-a-typeface">What’s The Difference Between A Font And A Typeface?</a>.
+
+    h3(class="main__subbold") Line-height / Leading
+    p Again, I think a lot of "leading" wisdom from the print world also has a lot to do with finding the smallest line-height possible that's good enough for reading AND saves the most in paper costs. I do agree that there can be way too much leading, but do lines of text on the web need to be as tight as lines in print? I don't think they do. I think it's fine to eyeball it and use what looks good to you. The conventional wisdom is to use more leading on long measures and less on short measures.
+
+    h3(class="main__subbold") Picking "fonts"
+    p You are free to use any typeface/font you want. Just know that picking a font is like choosing a voice for the text to be read in. And understand that a particular font might be read in a different voice depending on the group that reads it. For example, <a href="https://www.fonts.com/font/microsoft-corporation/comic-sans">Comic-Sans</a> is a font that is widely chastized amongst design professionals. I'm not going to join in that rant because I don't care. The point I want to make is that Comic-Sans looks childish. I agree that it is not a good look/voice for a professional identity, UNLESS your audience IS for children. Then I think Comic-Sans is a fine choice as it looks exactly like the handwritting of kids. I'd rather communicate in a voice fitting for kids than waste 10 grand on the rights to use some super ultra fancy typface that doesn't compliment youth anyways. 
+
+    p On the other hand, if you are picking a font for a service that is very formal, maybe you might want to look at using a serifed font. For anything in the tech sector, sans-serif fonts seem to cast a better voice. 
+
+    p Either way, remember that designing is not about YOU (unless it's a personal project)! It's about the voice of your client. Quit forcing your personal preferences on your clients. Inform them and let them make imformed decisions even if you disagree with their decision. In the end, it's better to have a happy client that is confident in working with you, than a client that hates you and tells people that you sucked to work with. Don't ruin the client relationship over something as silly as a font.  
+
+
+    h3(class="main__subbold") Serif vs Sans-Serif
+    p The are studies that say that serif fonts are easier to read——at least in print. <a href="http://alexpoole.info/blog/which-are-more-legible-serif-or-sans-serif-typefaces/">But this isn't true</a>. There is a <a href="http://alexpoole.info/blog/fighting-bad-typography-research/">LOT of falsy typographical information out there.</a> Again, I think it's time for us to discuss this stuff instead of perscribing practices to be used or ridiculed. My take on this is that both serif and sans-serif work fine, they just have a different voice. They can also work well together.  
+
+    hgroup
+      h2(class="main__heading") Displaying the baseline
+      h3(class="main__subhead") Print vs. Web
+
+    p In print software, your text sits perfectly on top of the lines of the baseline grid. On the web, it doesn't work that way because we have <span class="textbox">"boxes"</span> that hold our text. And web text is just about centered within that box so there is room for the ascenders and descenders of the letters. Thus, online we only care that our text is roughly centered within each baseline grid row. We need not worry about text sitting on the baseline.
+
+    hgroup
+      h2(class="main__heading") It's all about the paragraphs
+      h3(class="main__subhead") Balance the text that makes up the main content
+    
+    p We don't need ALL elements to fall perfectly in the middle of their baselines, we just need to make sure that the margin/padding we add keeps the core text of the page centered within each vertial grid line. Manage the spacing of elements to keep text like paragraphs and list items within the rhythm of the vertical grid.
+
+    hgroup
+      h2(class="main__heading") Following a baseline grid can be easy
+      h3(class="main__subhead") or you can make it a nightmare
+
+    p Let's keep this simple. In our stylesheets, there's only three things we need to do:
+
+    h3(class="main__subbold") One
+    p We need to set a <code class="language-css">font-size</code> and <code class="language-css">line-heigh</code> on the <code class="language-css">:root</code> selector.
+
+    pre(class="language-css")
+      code.
+        :root {
+          font-size: 20px;
+          line-height: 1.5;
+        }
+
+    p The settings above creates a baseline height of 30px (20px * 1.5 = 30px). This is all we need to set up a uniform baseline thoughout the page.
+
+    h3(class="main__subbold") Two
+    p We need to kill all the browser styles that crap on our efforts to follow a baseline rhythm. Here's all we need to handle everything aside from media.
+
+    pre(class="language-css")
+      code.
+        * {
+          line-height: 1.5;
+          margin: 0;
+          padding: 0;
+          font-size: 1rem;
+          font-weight: normal;
+          border: none;
+        }
+        *,
+        *:before,
+        *:after {
+          box-sizing: inherit;
+        }
+        table {
+          border-spacing: 0;
+        }
+        td,
+        th {
+          outline: 2px solid #000;
+          outline-offset: -1px;
+          padding: 0 0.75rem;
+        }
+        sup {
+          display: inline-block;
+          transform: translateY(-5px);
+          vertical-align: baseline;
+        }
+        sub {
+          display: inline-block;
+          transform: translateY(5px);
+          vertical-align: baseline;
+        }
+        hr {
+          outline: 1px solid #333;
+        }
+
+    p This should take care of just about everything. You can see this in action on this <a href="fun.pug">fun</a> page. I set just about every element in HTML5 to see how hard it would be to follow a strict baseline grid. Surprisingly, there wasn't much that had to be done. 
+    
+    h3(class="main__subbold") Three
+    p The last thing we need to do with our CSS is to use REMs for margin, padding and font-sizes. This way, if we ever need to change the base font size, all the spacing will adjust proportionately. 
+    
+    h3(class="main__subbold") A pinch of JS
+    p Elements like images, videos, iframes, textareas will likely need to be resized with JavaScript to maintain a strict baseline rhythm. For that we can use <a href="rdm.pug">RDM</a> to programaticly resize all of these elements to the nearest multiple of the baseline unit. 
+
+    h3(class="main__subbold") Done
+    p That's it. And all math aside, just using the VRT grid, we can easily eyeball the spacing needed to maintain the grid.  
+
+    hgroup
+      h2(class="main__heading") This site's typography
+      h3(class="main__subhead") Typographical choices made to make RDMKIT
+
+    h3(class="main__subbold") IBM Plex Mono
+    p I chose IBM Plex Mono as the font for this site because it's going to be mostly devs that are the only ones that will be utilizing the tools in this site. And we devs spend the majority of our time reading monospaced fonts in our text editors all day. So, this should feel natural to all of us. I don't use Plex in my text editor. I use <a href="https://larsenwork.com/monoid/">Monoid</a>. Regardless, I think this monospaced font is super easy on the eyes and it has many weights and styles to work with. Changing font weights and styles is all I needed to show differences between various parts of the content in this site. No need to get crazy with colors. Besides, since when do we get to see our monospaced lives with a little more typographic love? 
+
+    h3(class="main__subbold") Measure of 75cpl
+    p This site has a max measure on desktop of 75 characters-per-line. This is 10 more characters that the common 65cpl preference in print. But given that the internet provides tons of space and there is only one column in this site, maybe 75cpl is fine. You might think differently. That's fine. Unlike print, none of this is set in stone. We can all change our web type settings as much as we want. 
+
+    h3(class="main__subbold") Generic
+    p This site is a bit on the generic side. It's all about typesetting and nothing else. I didn't want to use colors. Black, white and gray was enough. There is only one typeface used. I styled the buttons and nav, but I left the text links unstyled. Nothing jumps out like an unstyled text link. The <a href="fun.pug">fun</a> page has a bit more styling, but it's still constained. 
+
+    hgroup
+      h2(class="main__heading") This is just another site
+      h3(class="main__subhead") It's not better because it follows a baseline grid
+
+    p Please don't think that a baseline grid needs to be followed to be a great site. It doesn't. I just find that using a baseline grid makes it easy for me to figure out what the vertical spacing should be. And, I just enjoy setting type. You are free to set type however you want. Much respect to each and every one of you. (ノ°ο°)ノ wootWOOT !!!
+
+    hgroup
+      h2(class="main__heading") About me
+      h3(class="main__subhead") I'm just a fellow nerd
+
+    p I've been designing since print was king. I've been developing since IE6 and Flash ruled the internet. I've been taking photos since film was the only option. I've been skateboarding since "The Search for Animal Chin" came out.
+
+    hgroup
+      h2(class="main__heading") Citations from Robert Bringhurst's
+      h3(class="main__subhead") The Elements of Typographic Style
+
+    h3(class="main__subbold") Break rules
+    ul
+      li By all means break the rules, and break them beautifully, delibrately and well. (p 10)
+      li Surely typographers, like others, ought to be at liberty to follow or to blaze the trails they choose. (p 9)
+
+    h3(class="main__subbold") A Typographer's task
+    ul
+      li The typogarpher's one essential task is to interpret and communicate the text. (p 20)
+      li Typography exists to honor text. (p 17)
+      li One of the principles of durable typography is always legibility. (p 17)
+      li Shape the page and frame the textblock so that it honors and reveals every element, every relationship between elements, and every logical nuance of the text. (p 23)
+      li Read the text before designing it. (p 20)
+
+    h3(class="main__subbold") Choose a face
+    ul
+      li Well-chosen words deserve well-chosen letters; these in their turn deserve to be set with affection, intelligence, knowledge and skill. (p 18)
+      li Choose a typeface or a group of faces that will honor and elucidate the character of the text. (p 22)
+      li Allow the face to speak in its natural idiom. (p 99)
+      li Choose faces whose individual spirit and character is in keeping with the text. (p 99)
+
+
+    h3(class="main__subbold") Measure
+      ul
+        li Anything from 45 to 75 characters is widely regarded as a satisfactory length of line for a single-column page set in a serifed typeface in a text size. The 66-character line (counting both letters and spaces) is widely regarded as ideal. (p 26)
+        li Longer measures need more lead than short ones. (p 37)
+        li Whether oral or visual, longwindedness is very rarely a virtue. (p 161)
+
+    hgroup
+      h2(class="main__heading") Citations from Oliver Reichenstein 
+      h3(class="main__subhead") iA
+
+    ul
+        li Web Design is 95% Typography
+        li 95% of the information on the web is written language. It is only logical to say that a web designer should get good training in the main discipline of shaping written information, in other words: Typography.
+        li Minimal Design. Maximum Focus.
+        li Typography in practice is not choosing fonts or making fonts, it’s about shaping text for optimal user experience.
+        li We don’t need to make sure that a website looks the same on all platforms!
+
+
+    hgroup
+      h2(class="main__heading") Extra reading
+      h3(class="main__subhead") Read more 
+
+
+      ul
+        li
+          a(href="https://www.smashingmagazine.com/2012/12/css-baseline-the-good-the-bad-and-the-ugly/") CSS Baseline: The Good, The Bad And The Ugly
+        li
+          a(href="https://ia.net/topics/the-web-is-all-about-typography-period") Web Design is 95% Typography
+        li
+          a(href="https://ia.net/topics/webdesign-is-95-typography-partii") Reactions to 95% Typography
+        li
+          a(href="https://24ways.org/2006/compose-to-a-vertical-rhythm") Compose to a Vertical Rhythm
+        li
+          a(href="http://webtypography.net/intro/") The Elements of Typographic Style Applied to the Web
+        li
+          a(href="http://lamb.cc/typograph/") * Typograph
+        li
+          a(href="https://keyes.ie/things/baseliner/") Baseliner
+        li
+          a(href="https://github.com/daneden/Baseline.js") Baseline.js
+        li
+          a(href="https://shalanah.github.io/baseline/") BASELINE
+        li
+          a(href="https://zellwk.com/blog/responsive-vertical-rhythm/") Responsive Vertical Rhythm with CSS Custom Properties and CSS Calc
+        li
+          a(href="https://builttoadapt.io/8-point-grid-vertical-rhythm-90d05ad95032") 8-Point Grid: Vertical Rhythm
+        li
+          a(href="https://betterwebtype.com/rhythm-in-web-typography") RHYTHM IN WEB TYPOGRAPHY
+        li
+          a(href="https://zellwk.com/blog/why-vertical-rhythms/") Why is Vertical Rhythm an Important Typography Practice?
+        li
+          a(href="https://zellwk.com/blog/responsive-vertical-rhythm/") Responsive Vertical Rhythm with CSS Custom Properties and CSS Calc
+        li
+          a(href="https://css-tricks.com/molten-leading-css/") Molten Leading in CSS
+        li
+          a(href="https://blog.prototypr.io/a-framework-for-creating-a-predictable-and-harmonious-spacing-system-8eee8aaf773c") A framework for creating a predictable & harmonious spacing system for faster design-dev handoff 
+        li
+          a(href="http://typecast.com/blog/4-simple-steps-to-vertical-rhythm") 4 Simple Steps to Vertical Rhythm
+        li
+          a(href="https://alistapart.com/article/settingtypeontheweb") Setting Type on the Web to a Baseline Grid
+        li
+          a(href="https://prowebtype.com/seeing-typographic-details/") Seeing Typographic Details
+        li
+          a(href="https://type-scale.com/") A Visual Type Scale
+        li
+          a(href="http://alexpoole.info/blog/which-are-more-legible-serif-or-sans-serif-typefaces/") Which Are More Legible: Serif or Sans Serif Typefaces?
+
+        li
+          a(href="http://alexpoole.info/blog/fighting-bad-typography-research/") Fighting bad typography research
+        li
+          a(href="https://www.subtraction.com/2005/09/02/the-funniest/") The Funniest Grid You Ever Saw
+        li
+          a(href="http://cameronmoll.com/archives/2006/12/gridding_the_960/") Gridding 960
+        li
+          a(href="https://elliotjaystocks.com/blog/the-relevance-of-the-baseline-grid/") The relevance of the baseline grid
+        li
+          a(href="http://stephanecurzi.me/baselinecss.2009/") Baseline
+        li
+          a(href="https://www.smashingmagazine.com/2011/03/technical-web-typography-guidelines-and-techniques/#tt-rhythm") Technical Web Typography: Guidelines and Techniques
+        li
+          a(href="https://www.smashingmagazine.com/2011/08/mind-your-en-and-em-dashes-typographic-etiquette/") Mind Your En And Em Dashes: Typographic Etiquette
+        li
+          a(href="https://www.smashingmagazine.com/2012/05/applying-macrotypography-for-readable-web-page/") How To Apply Macrotypography For A More Readable Web Page
+        li
+          a(href="https://www.smashingmagazine.com/2012/03/respect-thy-typography/") Respect Thy Typography
+        li
+          a(href="https://grtcalculator.com/") Golden Ratio Typography (GRT) Calculator
+        li
+          a(href="http://www.gridlover.net/") Gridlover
+        li
+          a(href="http://bohemianalps.com/tools/grid/") The Heads-Up Grid
+        li
+          a(href="https://github.com/jonikorpi/Golden-Grid-System") The Golden Grid System
+        li
+          a(href="http://lessframework.com/") Less Framework 4
+        li
+          a(href="http://csswizardry.com") CSS Wizardry
+        li
+          a(href="http://retinart.net/typography/typographicscale/") Typographic Scale
+        li
+          a(href="http://www.zurb.com/article/1000/foundation-30-typography-and-modular-scale") Foundation 3.0 Typography and Modular Scale Collide
+        li
+          a(href="http://www.alistapart.com/articles/more-meaningful-typography/") More Meaningful Typography
+        li
+          a(href="https://en.wikipedia.org/wiki/Serif#cite_note-alexpoole-77") Serif
+        li
+          a(href="http://achirschbek.blogspot.com/2012/11/the-origin-of-serif.html") The Origin of the Serif
+        li
+          a(href="https://typedecon.com/") Typography Deconstructed
+            
+
+  script(src="../internal.js")

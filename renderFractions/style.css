@@ -1,0 +1,72 @@
+body {
+  background-color: white;
+}
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+#box1 {
+  background-color: #0ff;
+  height: 100px;
+  width: 100px;
+}
+/* 
+ Golden Ratio * 100 = 161.803398875 
+*/
+#box2 {
+  background-color: indigo;
+  height: 100.1px;
+  width: 100.1px;
+}
+#box3 {
+  background-color: yellow;
+  height: 100.2px;
+  width: 100.2px;
+}
+#box4 {
+  background-color: magenta;
+  height: 100.25px;
+  width: 100.25px;
+}
+#box5 {
+  background-color: teal;
+  height: 100.3px;
+  width:100.3px;
+}
+#box6 {
+  background-color: red;
+  height: 100.4px;
+  width: 100.4px;
+}
+#box7 {
+  background-color: blue;
+  height: 100.5px;
+  width: 100.5px;
+}
+#box8 {
+  background-color: green;
+  height: 100.6px;
+  width: 100.6px;
+}
+#box9 {
+  background-color: orange;
+  height: 100.7px;
+  width: 100.7px;
+}
+#box10 {
+  background-color: purple;
+  height: 100.75px;
+  width: 100.75px;
+}
+#box11 {
+  background-color: pink;
+  height: 100.8px;
+  width: 100.8px;
+}
+#box12 {
+  background-color: olive;
+  height: 100.9px;
+  width: 100.9px;
+}

@@ -4,16 +4,56 @@ extends layout/layout.pug
 //-   div(class="hero__heading") RDMKIT
 
 block content
-  main
+  main(class="main__column")
     hgroup
-      h2 VRT
+      h2(class="main__heading") VRT
+      h3(class="main__subhead") Install the vertical grid tool
 
-    p I promise, this will not be about typographical commandments and shaming. Rather, I'll introduce some tools I made to help us all with the challenge of setting pleasing type online. 
+    p <code class="language-bash">npm install rdmkit-vrt --save-dev</code>
+    p This will install VRT as a devDependency.
 
+    h3(class="main__subbold") Quick setup
+    pre(class="language-js", data-start)
+      code.
+        import vrt from "rdmkit-vrt";
+        vrt();
 
-    p Press the 
-        code.language-css period 
-        |   key twice
+    p This will get you going, but you will have to comment it out or remove it for production builds. Unless, you want it in your build code.
+
+    h3(class="main__subbold") Conditional setup
+    pre.language-js
+      code. 
+        if (process.env.NODE_ENV === "development") {
+          var vrt = require("rdmkit-vrt");
+          vrt();
+        }
+
+    p If you are using environment variables, this will only enable CPL while in development. It will not be included in the build. If you happen to use <a href="https://parceljs.org/env.html">ParcelJS</a> <code class="language-js">process.env.NODE_ENV === "development"</code> is set for you on all non-build runs. And it will also set <code class="language-js">process.env.NODE_ENV === "production"</code> when you do build. Super handy.
+
+    h3(class="main__subbold") Options
+    p You can also change the gridline colors and the shortcut keys to open and close the grid. So, use the colors that work with your backgrounds and the keys that you prefer.
+
+    pre.language-js
+      code. 
+        // You must specify your options before you call `vrt()` 
+        // Also, you don't need to use all the options
+
+        const options = {
+          belowColor: "cyan",
+          aboveColor: "indigo",
+          aboveKey: "38,38", //  upArrow
+          belowKey: "40,40", //  downArrow
+          closeKey: "88"     //  x
+        }
+
+        vrt(options);
+
+        // or, specify just the setting you need
+        vrt({belowColor: "#ccc"});
+        
+
+    h3(class="main__subbold") Additional CSS setup
+    p You will need to specify a <code class="language-css">line-height</code> and <code class="language-css">font-size</code> on the <code class="language-css">:root</code> selector in order for this to work. This grid is configured to work on a site that is correctly configured for good typography.
 
     pre.language-css
       code.
@@ -21,3 +61,37 @@ block content
           line-height: 1.5;
           font-size: 20px;
         }
+
+    h3(class="main__subbold") Usage
+
+    ul
+      li Display VRT grid BELOW your web page -> Press <code class="language-js">,,</code>
+      li Display VRT grid ABOVE your web page -> Press <code class="language-js">..</code> 
+      li Close VRT grid press -> <code class="language-js">/</code>
+
+    p Try this now, VRT is enabled throughout this site. Press <code class="language-js">..</code> to open the below grid, and press <code class="language-js">/</code> to close the grid.
+
+    h3(class="main__subbold") Why ABOVE and BELOW?
+    p There is an ABOVE and BELOW display option for solving two issues with vertical grids. Putting the grid below is great, but you can't see it if you have a background color or image set on any elements. Displaying the grid ABOVE the web page is good, but then you can't select any of the elements below the grid. So, you kind of need both to get the job done reliably. 
+
+    h3(class="main__subbold") Background
+
+    p Let me start by saying that you don't need the challenge of following a strict vertical grid. Millions of websites are made without following this old practice from the print world. Besides, designing to a vertical grid in a web page is tough anyway. 
+
+    p The benefit of following a baseline grid is that it helps you figure out the vertical height and spacing for all the elements in your site. And for a medium that has a vertical nature, a vertical grid maintains a pleasing vertical rhythm as you scroll through the site. 
+
+    p If we choose to take on the challenge of following a strict vertical rhythm, then we need a grid that we can follow. Instead of making a grid that is independent of our stylesheets, this one only works once you set <code class="language-css">line-height</code> and <code class="language-css">font-size</code> on the <code class="language-css">:root</code> selector in your stylesheet. This forces us to use good typographical practices in our stylesheets. 
+
+    p In this case above, the baseline height equals 30px. This is determined by multiplying a <code class="language-css">line-height</code> of <code class="language-css">1.5</code> by a <code class="language-css">font-size</code> of <code class="language-css">20px</code>. Having a vertical grid to follow will help you figure out consistent vertical spacing between all the elements in your site.
+
+    p A common mistake is trying to make ALL text fall on a baseline. You don't need to do this. We are only trying to have the main text content fall on the baseline. So, it's the paragraphs and lists of the main content that we are tyring to address. And we want to make sure that the media we add to the web page doesn't disrupt this baseline alignment. 
+
+    p I prefer a <code class="language-css">line-height</code> of <code class="language-css">1.5</code> and a <code class="language-css">font-size</code> of any even number. I follow these settings because the math yields consistent results. When values are used that don't yield even numbers or quarters, then different browsers are going to handle rounding fractional numbers differently. This will throw off your baseline efforts and make managing baseline rhythm a pain in the ass. We don't want that. I made a <a href="https://jsbin.com/vupinoj/edit?css,console,output">JSBIN to demonstrate this</a>.
+
+    p Another thing to notice is that the basline isn't showing at the bottom of the text. It's showing inbetween lines of text. The web works in a different nature than print does. Everything in HTML creates a bounding box. A paragraph tag is a box that holds text. Every word and character on the page is bound by a text box too. As a result, our text is always going to rest inside that box. So this VRT grid seeks to handle the baseline as it applies to the web and not as it applies to print.  
+
+    p This will be enough to get you going, but eventually, you will find that images and responsive settings make following a strict vertical grid impossible. For that problem I've created another tool to resize images(or any element) to the nearest multiple of the baseline unit. Thus, enabling us to keep the rhythm that we want. Look at using the <a href="/rdm.pug">RDM</a> module to help with that. 
+
+
+
+  script(src="../internal.js")

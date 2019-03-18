@@ -18,6 +18,19 @@
   text-align: center;
   width: 100%;
 }
+@media (max-width: 960px) {
+  .navtop {
+    grid-row-gap: 0;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "logo tagline" "nav nav";
+  }
+}
+@media (max-width: 440px) {
+  .navtop {
+    grid-template-columns: 1fr;
+    grid-template-areas: "logo" "tagline" "nav";
+  }
+}
 .logo {
   background-color: #333;
   color: #fff;
@@ -33,14 +46,45 @@
   text-align: left;
   width: max-content;
 }
+@media (max-width: 440px) {
+  .tagline {
+    background-color: rgba(230,230,230,0.5);
+    padding: 0.75rem 0;
+    text-align: center;
+    width: 100%;
+  }
+}
 .nav {
   grid-area: nav;
   display: flex;
   width: 100%;
 }
+@media (max-width: 960px) {
+  .nav {
+    align-items: center;
+    background-color: #333;
+    justify-content: center;
+  }
+}
+@media (max-width: 850px) {
+  .nav {
+    flex-wrap: wrap;
+  }
+}
 .nav a {
+  background-color: #333;
+  color: #fff;
+  flex: 1;
   padding: 0.75rem;
   text-decoration: none;
+}
+.nav a:hover {
+  background-color: #fff;
+  color: #333;
+}
+footer a {
+  color: #fff;
+  padding-right: 0.75rem;
 }
 .hero {
   background-color: #ff0;
@@ -62,6 +106,19 @@
   text-align: center;
   width: 100%;
 }
+@media (max-width: 960px) {
+  .navtop {
+    grid-row-gap: 0;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "logo tagline" "nav nav";
+  }
+}
+@media (max-width: 440px) {
+  .navtop {
+    grid-template-columns: 1fr;
+    grid-template-areas: "logo" "tagline" "nav";
+  }
+}
 .logo {
   background-color: #333;
   color: #fff;
@@ -77,14 +134,45 @@
   text-align: left;
   width: max-content;
 }
+@media (max-width: 440px) {
+  .tagline {
+    background-color: rgba(230,230,230,0.5);
+    padding: 0.75rem 0;
+    text-align: center;
+    width: 100%;
+  }
+}
 .nav {
   grid-area: nav;
   display: flex;
   width: 100%;
 }
+@media (max-width: 960px) {
+  .nav {
+    align-items: center;
+    background-color: #333;
+    justify-content: center;
+  }
+}
+@media (max-width: 850px) {
+  .nav {
+    flex-wrap: wrap;
+  }
+}
 .nav a {
+  background-color: #333;
+  color: #fff;
+  flex: 1;
   padding: 0.75rem;
   text-decoration: none;
+}
+.nav a:hover {
+  background-color: #fff;
+  color: #333;
+}
+footer a {
+  color: #fff;
+  padding-right: 0.75rem;
 }
 .hero {
   background-color: #ff0;
@@ -106,6 +194,19 @@
   text-align: center;
   width: 100%;
 }
+@media (max-width: 960px) {
+  .navtop {
+    grid-row-gap: 0;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "logo tagline" "nav nav";
+  }
+}
+@media (max-width: 440px) {
+  .navtop {
+    grid-template-columns: 1fr;
+    grid-template-areas: "logo" "tagline" "nav";
+  }
+}
 .logo {
   background-color: #333;
   color: #fff;
@@ -121,17 +222,47 @@
   text-align: left;
   width: max-content;
 }
+@media (max-width: 440px) {
+  .tagline {
+    background-color: rgba(230,230,230,0.5);
+    padding: 0.75rem 0;
+    text-align: center;
+    width: 100%;
+  }
+}
 .nav {
   grid-area: nav;
   display: flex;
   width: 100%;
 }
+@media (max-width: 960px) {
+  .nav {
+    align-items: center;
+    background-color: #333;
+    justify-content: center;
+  }
+}
+@media (max-width: 850px) {
+  .nav {
+    flex-wrap: wrap;
+  }
+}
 .nav a {
+  background-color: #333;
+  color: #fff;
+  flex: 1;
   padding: 0.75rem;
   text-decoration: none;
+}
+.nav a:hover {
+  background-color: #fff;
+  color: #333;
+}
+footer a {
+  color: #fff;
+  padding-right: 0.75rem;
 }
 pre {
-  background-image: none !important;
   border: none !important;
   box-shadow: none !important;
   padding: 1.5rem !important;
@@ -152,25 +283,35 @@ pre[class*="language-"] {
   line-height: 1.5;
   tab-size: 2;
   hyphens: none;
+  background-color: rgba(230,230,230,0.5);
+}
+@media (max-width: 900px) {
+  code[class*="language-"],
+  pre[class*="language-"] {
+    white-space: pre-wrap;
+  }
 }
 pre[class*="language-"] {
   position: relative;
-  margin: 1.5rem 0;
+  margin: 0 0 1.5rem 0;
   box-shadow: -1px 0px 0px 0px #358ccb, 0px 0px 0px 1px #dfdfdf;
   border-left: 10px solid #358ccb;
   background-origin: content-box;
   overflow: visible;
+}
+pre[class*="language-"] > code[class*="language"] {
+  white-space: pre-wrap;
+  background-color: transparent;
+  padding: 0;
 }
 code[class*="language"] {
   font-weight: 100;
   max-height: inherit;
   height: 100%;
   padding: 0 0.25rem;
-  overflow: auto;
 }
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-  background-color: #e6e6e6;
   box-sizing: border-box;
 }
 :not(pre) > code[class*="language-"] {
@@ -183,6 +324,8 @@ pre[class*="language-"] {
 .token.doctype,
 .token.cdata {
   color: #333;
+  font-style: italic;
+  font-weight: 100;
 }
 .token.punctuation {
   color: #333;
@@ -207,7 +350,7 @@ pre[class*="language-"] {
 .token.inserted {
   color: #333;
   font-style: italic;
-  font-weight: bold;
+  font-weight: normal;
 }
 .token.operator,
 .token.entity,
@@ -221,6 +364,9 @@ pre[class*="language-"] {
 .token.class-name {
   color: #333;
   font-weight: 100;
+}
+.token.keyword {
+  font-weight: normal;
 }
 .token.regex,
 .token.important {
@@ -248,7 +394,6 @@ pre[class*="language-"] {
 @media screen and (max-width: 767px) {
   pre[class*="language-"]:before,
   pre[class*="language-"]:after {
-    bottom: 14px;
     box-shadow: none;
   }
 }
@@ -266,13 +411,25 @@ pre[class*="language-"].line-numbers code {
 pre[class*="language-"].line-numbers .line-numbers-rows {
   left: 0;
 }
+code[class*="language-bash"] {
+  font-weight: 400;
+}
+.token.storage {
+  font-weight: bold !important;
+}
 :root {
   box-sizing: border-box;
   font-size: 20px;
   line-height: 1.5;
 }
+@media (max-width: 440px) {
+  :root {
+    font-size: 16px;
+  }
+}
 :root.desktop main {
-  max-width: 75ch;
+  max-width: 80ch;
+  padding: 0 1.5rem;
 }
 :root.tablet main {
   max-width: 55ch;
@@ -304,6 +461,7 @@ pre[class*="language-"].line-numbers .line-numbers-rows {
   font-family: "ibm plex mono";
   font-size: 1rem;
   font-weight: normal;
+  line-height: 1.5;
   border: none;
   outline: none;
 }
@@ -314,7 +472,7 @@ pre[class*="language-"].line-numbers .line-numbers-rows {
 }
 body {
   font-family: "ibm plex mono";
-  font-weight: 200;
+  font-weight: 400;
 }
 figure {
   width: 100%;
@@ -358,7 +516,10 @@ hgroup {
 .hierarchy h3 {
   font-style: italic;
 }
-.button {
+li {
+  list-style-type: circle;
+}
+.buttons {
   background-color: #333;
   color: #fff;
   padding: 0 0.5rem;
@@ -399,6 +560,9 @@ button:hover {
   transform: scale(1.05);
   will-change: transform;
 }
+button.active {
+  background-color: #ccc;
+}
 main {
   max-width: 100%;
   margin: 0 auto;
@@ -410,7 +574,9 @@ strong {
 }
 .main__column {
   margin: 0 auto;
-  width: 75ch;
+  padding: 0 1.5rem;
+  margin-bottom: 3rem;
+  width: 80ch;
 }
 .main__column p,
 .main__column ul {
@@ -418,10 +584,17 @@ strong {
 }
 .main__column hgroup {
   margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+.main__headline {
+  font-size: 2rem;
+  line-height: 1;
+  margin-top: 3rem;
   margin-bottom: 1rem;
 }
 .main__heading {
-  font-size: 2rem;
+  font-weight: bold;
+  font-size: 1.5rem;
   line-height: 1;
 }
 .main__subhead {
@@ -440,4 +613,27 @@ strong {
   top: 0;
   left: -2.5vw;
   transform: skewX(-45deg);
+}
+kbd {
+  background-color: rgba(179,179,179,0.5);
+  border-radius: 3px;
+  outline: 1px solid #333;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.2), 0 2px 0 0 rgba(255,255,255,0.7) inset;
+  color: #333;
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 100;
+  padding: 0 0.5rem;
+  white-space: nowrap;
+}
+footer {
+  background-color: #333;
+  color: #fff;
+}
+footer p {
+  margin: 0;
+  padding: 0.75rem 0 0.75rem 0.75rem;
+}
+.textbox {
+  outline: 1px solid #333;
 }

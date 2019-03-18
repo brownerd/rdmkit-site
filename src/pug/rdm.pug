@@ -4,16 +4,30 @@ extends layout/layout.pug
 //-   div(class="hero__heading") RDMKIT
 
 block content
-  main
+  main(class="main__column")
     hgroup
-      h2 RDM
+      h2(class="main__heading") RDM
+      h3(class="main__subhead") Install the script that will resize the height of any element on the page to the nearest multiple of the baseline. 
 
-    p I promise, this will not be about typographical commandments and shaming. Rather, I'll introduce some tools I made to help us all with the challenge of setting pleasing type online. 
+    p <code class="language-bash">npm install rdmkit-rdm --save</code>
+    p This will install RDM as a dependency.
 
+    p Now import this along with your frontend code and call the rdm funtion with any selector you would like.
 
-    p Press the 
-        code.language-css period 
-        |   key twice
+    h3(class="main__subbold") Select all instances of a single DOM element
+    pre.language-js
+      code.
+        import rdm from "rdmkit-rdm";
+        rdm(".resize");
+
+    h3(class="main__subbold") Select all instances of multiple DOM elements
+    pre.language-js
+      code.
+        import rdm from "rdmkit-rdm";
+        rdm("figure, div.boxes, [rel='hero']");
+
+    h3(class="main__subbold") Additional CSS setup
+    p You will need to specify a <code class="language-css">line-height</code> and <code class="language-css">font-size</code> on the <code class="language-css">:root</code> selector in order for this to work. This grid is configured to work on a site that is correctly configured for good typography.
 
     pre.language-css
       code.
@@ -21,3 +35,49 @@ block content
           line-height: 1.5;
           font-size: 20px;
         }
+
+    h3(class="main__subbold") Usage
+    p When the page loads, all elements passed into the <code class="language-js">rdm()</code> function will be resized to a height closest to a multiple of the baseline unit. This function will also be fired off again on a resize event. This function is debounced, so it wont fire until the user stops resizing the window.
+
+    p Again, setting type online to a strict baseline rhythm is tough. If you do manage to massage all of your type in to a perfect baseline rhythm, then images and responsive challenges will end up throwing all of your baseline efforts away. <code class="language-js">rdm()</code> takes care of that.
+
+    h3(class="main__subbold") Warning
+    p Please don't use <code class="language-js">rdm()</code> on stuff that doesn't need it, like text. Just use it on elements that only hold an image, video, iframe, textarea, canvas or other element that auto resizes their height in a responsive website. Example:
+
+    h3(class="main__subbold") Good usage
+    pre.language-js
+      code.
+        import rdm from "rdmkit-rdm";
+        rdm(".resize");
+
+    - var s1 = "<div class='resize'>\n\t<iframe></iframe>\n</div>"
+    - var s2 = "<figure class='resize'>\n\t<img src='' alt='' />\n</figure>"
+    - var s3 = "<div class='resize'>\n\t<textarea rows=3 placeholder='Text here...'></textarea>\n</div>"
+    pre.language-html
+      code.
+        #{s1}
+
+        #{s2}
+
+        #{s3}
+
+    p Notice how I'm not directly resizing the problem element. Rather, I am resizing the wrapper element holding the problem element. When elements like images, iframes, textareas and svgs are set to a width of 100%, they auto-scale to fit their parent's width. As a result, if we resize the height of the parent, these images, iframes, textareas and svgs will scale to fit perfectly inside their parent.
+
+    h3(class="main__subbold") Bad uasge
+    
+    pre.language-js
+      code.
+        import rdm from "rdmkit-rdm";
+        rdm("h3, p");
+  
+    - var s4 = "<h3>Mega heading</h3>"
+    - var s5 = "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non doloremque aperiam fugit autem nostrum, eum accusantium deserunt rerum nisi corrupti qui vero, voluptas beatae ad, fuga suscipit molestias explicabo iste.</p>"
+
+    pre.language-html
+      code.
+        #{s4}
+        #{s5}
+        
+    p If your text is breaking your baseline, then you either have your text settings messed up, or there is something like an image, iframe, textarea or svg that's throwing things off. Use the inspector to hunt these issue down.
+
+  script(src="../internal.js")

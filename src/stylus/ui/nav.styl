@@ -3,10 +3,26 @@
   grid-template-columns auto 1fr auto
   grid-template-areas: "logo tagline nav"
   grid-gap full
+
+  // display flex
   align-items center
   // justify-content space-between
   text-align center
   width 100%
+
+  +breakpoint("med")
+    grid-row-gap 0
+    grid-template-columns auto 1fr
+    // grid-template-rows auto auto
+    grid-template-areas: "logo tagline"\
+                         "nav nav"
+
+  +breakpoint("xxs")
+    grid-template-columns 1fr
+    grid-template-areas: "logo"\
+                         "tagline"\
+                         "nav"
+
 
 .logo
   background-color charcoal
@@ -23,6 +39,12 @@
   text-align left
   width max-content
 
+  +breakpoint("xxs")
+    background-color silver
+    padding half 0
+    text-align center
+    width 100%
+
 .nav
   grid-area nav
   display flex
@@ -31,6 +53,27 @@
   // justify-self end
   width 100%
 
+  +breakpoint("med")
+    align-items center
+    //box-shadow 0 -1px 0 black
+    background-color charcoal
+    justify-content center
+
+  +breakpoint("sm")
+    flex-wrap wrap
+
   a
+    background-color charcoal 
+    color white
+    flex 1
     padding half
     text-decoration none
+
+    &:hover
+      background-color white
+      color charcoal
+
+footer 
+  a 
+    color white
+    padding-right half

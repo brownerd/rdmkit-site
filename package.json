@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel src/pug/index.pug --open 'google chrome canary'",
+    "devnoc": "parcel src/pug/index.pug --no-cache --open 'google chrome canary'",
     "build": "parcel build src/pug/index.pug",
-    "clean": "rimraf dist",
+    "clean": "rm -rf dist",
     "deploy": "aws s3 cp dist/ s3://rdmkit.com --recursive",
     "killcache": "aws cloudfront create-invalidation --distribution-id E2ZQXLW2GYX1C5 --paths /*"
   },
@@ -18,10 +19,10 @@
   "license": "ISC",
   "dependencies": {
     "prismjs": "^1.15.0",
-    "rdmkit-cpl": "^1.0.10",
-    "rdmkit-mzr": "^1.0.5",
-    "rdmkit-rdm": "^1.0.0",
-    "rdmkit-vrt": "^1.0.6"
+    "rdmkit-cpl": "^1.0.14",
+    "rdmkit-mzr": "^1.0.6",
+    "rdmkit-rdm": "^1.0.3",
+    "rdmkit-vrt": "^1.0.9"
   },
   "devDependencies": {
     "parcel": "^1.11.0",

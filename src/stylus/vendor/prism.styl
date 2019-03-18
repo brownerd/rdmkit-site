@@ -1,11 +1,21 @@
 // prism styles
 
-// prism.js Coy theme for JavaScript, CoffeeScript, CSS and HTML
-// Based on https://github.com/tshedor/workshop-wp-theme (Example: http://workshop.kansan.com/category/sessions/basics or http://workshop.timshedor.com/category/sessions/basics);
-// @author Tim  Shedor
+codeBg = silver
+codeColor = charcoal
+codeColor2 = charcoal
+codeComment = charcoal
+codePunctuation = charcoal
+codeFucPropConstNum = charcoal
+codeSelectorStrAttr = charcoal
+codeValKeyClass = charcoal
+codeOperatorVarUrlEntity = charcoal
+codeReg = charcoal
+codeStyleToken = charcoal
+codeToken = charcoal
+
 
 pre
-  background-image: none !important
+  // background-image: none !important
   // border-radius: .5rem
   border: none !important
   box-shadow: none !important
@@ -29,10 +39,25 @@ pre[class*="language-"]
   tab-size: 2
   hyphens: none
 
+  +breakpoint("fun900")
+    white-space pre-wrap
+    // white-space normal
+
+  // zerba lines
+  // background-color: #fdfdfd
+  // background-image: linear-gradient(transparent 50%, hsla(0deg, 0%, 100%, 1) 50%)
+  // background-size: 3rem 3rem
+
+  background-color codeBg
+  // background-image: radial-gradient(fog 15%,transparent 16%),radial-gradient(fog 15%,transparent 16%)
+  // background-size: 10px 10px
+  // background-position: 5px 5px,10px 10px
+  // mix-blend-mode: multiply
+
 /* Code blocks */
 pre[class*="language-"]
   position: relative
-  margin: 1.5rem 0
+  margin: 0 0 1.5rem 0
   box-shadow: -1px 0px 0px 0px #358ccb, 0px 0px 0px 1px #dfdfdf
   border-left: 10px solid #358ccb
   // background-color: #fdfdfd
@@ -40,7 +65,16 @@ pre[class*="language-"]
   // background-size: 3em 3em
   background-origin: content-box
   overflow: visible
+  // overflow-x: scroll
   // max-height: 30em
+
+
+pre[class*="language-"] > code[class*="language"]
+  // white-space: pre-line
+  white-space: pre-wrap
+  background-color transparent
+  // word-break: break-all
+  padding 0
 
 
 code[class*="language"]
@@ -49,14 +83,14 @@ code[class*="language"]
   height: 100%
   padding: 0 .25rem
   // display: block
-  overflow: auto
+  // overflow: auto
 
 
 // Margin bottom to accomodate shadow
 :not(pre) > code[class*="language-"],
 pre[class*="language-"]
   // background-color: #fdfdfd
-  background-color: codeBg
+  // background-color: codeBg
   box-sizing: border-box
   // margin-bottom: 1em
 
@@ -97,6 +131,8 @@ pre[class*="language-"]
 .token.doctype,
 .token.cdata
   color: codeComment
+  font-style: italic
+  font-weight: 100
 
 
 .token.punctuation
@@ -124,7 +160,7 @@ pre[class*="language-"]
 .token.inserted
   color: codeSelectorStrAttr
   font-style: italic
-  font-weight: bold
+  font-weight: normal
 
 
 .token.operator,
@@ -141,6 +177,9 @@ pre[class*="language-"]
 .token.class-name
   color: codeValKeyClass
   font-weight: 100
+
+.token.keyword
+  font-weight: normal
 
 
 .token.regex,
@@ -177,7 +216,7 @@ pre[class*="language-"]
 @media screen and (max-width: 767px)
   pre[class*="language-"]:before,
   pre[class*="language-"]:after
-    bottom: 14px
+    // bottom: 14px
     box-shadow: none
 
 
@@ -199,3 +238,10 @@ pre[class*="language-"].line-numbers code
 
 pre[class*="language-"].line-numbers .line-numbers-rows
   left: 0
+
+code[class*="language-bash"]
+  font-weight 400
+  // font-style italic
+
+.token.storage
+  font-weight: bold!important

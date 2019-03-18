@@ -1,0 +1,104 @@
+extends layout/layout.pug
+
+block content
+  main(class="main__column")
+    hgroup
+      h2(class="main__heading") ALL
+      h3(class="main__subhead") If you want to use all of these tools, here's how to set it up.
+
+    p <code class="language-bash">npm install rdmkit-cpl rdmkit-mzr rdmkit-vrt --save-dev</code>
+    p <code class="language-bash">npm install rdmkit-rdm --save</code>
+
+    h3(class="main__subbold") index.js
+    pre.language-js
+      code. 
+        import rdm from "rdmkit-rdm";
+        rdm(".resize");
+
+        if (process.env.NODE_ENV === "development") {
+          var cpl = require("rdmkit-cpl");
+          var mzr = require("rdmkit-mzr");
+          var vrt = require("rdmkit-vrt");
+          cpl();
+          mzr();
+          vrt({ belowColor: "#ccc" });
+        }
+
+    h3(class="main__subbold") style.css
+    pre(class="language-css")
+      code.
+        :root {
+          box-sizing: border-box;
+          font-family: sans-serif;
+          font-size: 20px;
+          line-height: 1.5;
+        }
+        * {
+          margin: 0;
+          padding: 0;
+          font-size: 1rem;
+          font-weight: normal;
+          border: none;
+        }
+        *,
+        *:before,
+        *:after {
+          box-sizing: inherit;
+        }
+        table {
+          border-spacing: 0;
+        }
+        td,
+        th {
+          outline: 2px solid #000;
+          outline-offset: -1px;
+          padding: 0 0.75rem;
+        }
+        sup {
+          display: inline-block;
+          transform: translateY(-5px);
+          vertical-align: baseline;
+        }
+        sub {
+          display: inline-block;
+          transform: translateY(5px);
+          vertical-align: baseline;
+        }
+        input[type='date'],
+        input[type='month'],
+        input[type='week'],
+        input[type='datetime'],
+        input[type='datetime-local'] {
+          line-height: 1;
+        }
+        .resize iframe,
+        .resize textarea,
+        .resize canvas,
+        .resize svg {
+          width: 100%;
+        }
+        .resize img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          object-position: 50% 50%;
+        }
+        kbd {
+          background-color: #ccc;
+          border-radius: 3px;
+          outline: 1px solid #333;
+          box-shadow: 0 1px 1px rgba(0,0,0,0.2), 0 2px 0 0 rgba(255,255,255,0.7) inset;
+          color: #333;
+          display: inline-block;
+          font-size: 0.75rem;
+          font-weight: 100;
+          padding: 0 0.5rem;
+          white-space: nowrap;
+        }
+
+    h3(class="main__subbold") Download starter JS and CSS file if you don't want to copy from here
+      
+    p: a(href="https://github.com/brownerd/rdmkit-starter/raw/master/rdmkit-starter.zip") Download starter files
+
+
+  script(src="../internal.js")

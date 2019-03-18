@@ -4,20 +4,53 @@ extends layout/layout.pug
 //-   div(class="hero__heading") RDMKIT
 
 block content
-  main
+  main(class="main__column")
     hgroup
-      h2 MZR
+      h2(class="main__heading") MZR
+      h3(class="main__subhead") Install the multiple measure visualization tool
 
-    p I promise, this will not be about typographical commandments and shaming. Rather, I'll introduce some tools I made to help us all with the challenge of setting pleasing type online. 
+    p <code class="language-bash">npm install rdmkit-mzr --save-dev</code>
+    p This will install MZR as a devDependency. 
 
-
-    p Press the 
-        code.language-css period 
-        |   key twice
-
-    pre.language-css
+    h3(class="main__subbold") Quick setup
+    pre.language-js
       code.
-        :root {
-          line-height: 1.5;
-          font-size: 20px;
+        import mzr from "rdmkit-mzr";
+        mzr();
+
+    p This will get you going, but you will have to comment it out or remove it for production builds. Unless, you want it in your build code.
+
+    h3(class="main__subbold") Conditional setup
+    pre.language-js
+      code. 
+        if (process.env.NODE_ENV === "development") {
+          var mzr = require("rdmkit-mzr");
+          mzr();
         }
+
+    p If you are using environment variables, this will only enable MZR while in development. It will not be included in the build. If you happen to use <a href="https://parceljs.org/env.html">ParcelJS</a> <code class="language-js">process.env.NODE_ENV === "development"</code> is set for you on all non-build runs. And it will also set <code class="language-js">process.env.NODE_ENV === "production"</code> when you do build. Super handy.
+
+
+    h3(class="main__subbold") Usage
+
+    p Pick any element in your web page and give it a data attribute of <code class="language-html">data-mzr=""</code>. Assign this attribute any number. You can assign multiple numbers separated by a `/` to indicate multiple character counts in one line of text. Peep the example below.
+
+    - var c = "<p data-mzr=\"35/55/75\">Cardinals arch gooey butter cake south grand muny nelly mississippi river, CWE barnes-jewish hospital toasted ravioli anheuser-busch neon sign. Lindbergh St. Louis science center and zoo turtle park soulard bowling riverfront times. Delmar loop blueberry hill tivoli COCA moonrise hotel RAC answers.com washington university forest park spanish pavilion art hill.</p>"
+
+    pre.language-html
+      code.
+        #{c}
+
+    h3(class="main__subbold") Output
+    p(data-mzr="35/55/75") Cardinals arch gooey butter cake south grand muny nelly mississippi river, CWE barnes-jewish hospital toasted ravioli anheuser-busch neon sign. Lindbergh St. Louis science center and zoo turtle park soulard bowling riverfront times. Delmar loop blueberry hill tivoli COCA moonrise hotel RAC answers.com washington university forest park spanish pavilion art hill.
+
+    p Above, the first 35 characters have been highlighted in magenta. The magenta and yellow highlighted characters show the first 55 characters. The magenta, yellow and green highlighted characters show the first 75 characters. Everything in blue is outside the bounds of the top limit specified.
+
+    p I usaully put this on a main paragraph at the beginning of developing a site. It helps me visualize multiple line-lengths at once. If I have to define columns with <code class="language-css">px</code> then the colors help me locate the desired characters-per-line while I use the inspector to adjust the column width. And even after that is done MZR helps me to visualize my breakpoints without having to reduce the window's width.
+
+
+    
+
+
+
+  script(src="../internal.js")

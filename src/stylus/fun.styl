@@ -1,0 +1,480 @@
+// Globals
+@import "globals"
+@import "ui/nav" 
+@import "vendor/prism"
+
+*
+  margin 0
+  padding 0
+  font-family: face.mono
+  font-size 1rem
+  font-weight normal
+  line-height lineHeight
+  border none
+  outline none
+
+:root 
+  color #333
+  font-size baseFontSize
+  line-height lineHeight // 1.5
+  box-sizing border-box
+
+  +breakpoint("xxs")
+    font-size 16px
+
+*, 
+*:before, 
+*:after 
+  box-sizing inherit
+
+body
+  font-family: face.mono
+  font-weight 400
+
+.page
+  padding full double
+
+nav > ul
+  display grid
+  grid-template-columns repeat(3, 1fr)
+
+h1, h2, h3, h4, h5, h6, legend, caption
+  font-weight bold
+
+p, ul, ol, dl, fieldset, hgroup
+  margin-bottom full
+
+// overrides
+table
+  border-spacing 0
+
+td, th
+  outline 2px solid black
+  outline-offset -1px
+  padding 0 half
+
+th
+  background-color white
+
+sup
+  display inline-block
+  transform translateY(-5px)
+  vertical-align baseline
+
+sub
+  display inline-block
+  transform translateY(5px)
+  vertical-align baseline
+
+[role='contentinfo']
+  background-color charcoal
+  color white
+
+.feature
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cline stroke='%23000000' stroke-width='1' x1='0' y1='100%25' x2='100%25' y2='0' /%3E%3Cline stroke='%23000000' stroke-width='1' x1='0' y1='0' x2='100%25' y2='100%25' /%3E%3C/svg%3E");
+
+  background-color silver
+  // background-image: url("../images/alive.jpg")
+  background-repeat no-repeat
+  background-position center
+  background-size cover
+
+  display grid
+  grid-template-columns 1fr
+  grid-template-rows 50vh
+
+  align-items center
+  justify-content center
+  position relative
+  overflow hidden
+
+  padding 0 3rem
+
+  &::after
+    background-color #333
+    background-image: repeating-linear-gradient(90deg, transparent, transparent 50px, silver 50px, silver 100px);
+    background-size: cover
+    content: ''
+    position absolute
+    height 100%
+    width 100%
+    top 0
+    left 0
+    transform skewX(-45deg)
+
+hgroup
+  z-index 3
+
+.headline
+  color white
+  font-size 5rem
+  text-align center
+  text-shadow 3px 3px 0 charcoal
+
+.subhead
+  color white
+  text-align center
+  text-shadow 3px 3px 0 charcoal
+  font-size 20px
+
+
+
+[class*="layer__container"]
+  // background-color silver
+  margin 0 auto
+  max-width 80ch
+  padding 3rem 1.5rem
+
+  display grid
+  grid-gap double
+  grid-template-columns 1fr 2fr
+  grid-template-areas "solo detail"
+  align-items center
+  justify-content center
+
+.bg
+  background-color graphite
+
+.section__block
+  grid-area solo
+
+.section__content
+  grid-area detail
+
+.layer__container-flip
+  grid-template-columns 2fr 1fr 
+  grid-template-areas "detail solo"
+
+
+
+.section__heading
+  font-size 2rem
+  font-weight 100
+  line-height 1
+  position relative
+  text-transform uppercase
+  text-align center
+  text-shadow 3px 3px 0 #ccc
+
+  // &::before
+  //   // background-color charcoal
+  //   box-shadow 3px 3px 0 #ccc
+  //   color charcoal
+  //   content: "tags:"
+  //   display block
+  //   font-size 1rem
+  //   outline 1px solid charcoal
+  //   position absolute
+  //   padding .25rem
+  //   top -1.5rem
+  //   left 0
+  //   text-shadow none
+
+
+.section__minihead
+  font-size 1.5rem
+  line-height 1
+  margin-bottom 1.5rem
+  position relative
+
+  &::before
+    background-color charcoal
+    content: ""
+    display block
+    position absolute
+    top -1.5rem
+    left 0
+    height 5px
+    width 2ch
+    
+
+blockquote 
+  font-style italic
+  margin-bottom 1.5rem
+
+cite
+  display flex
+
+
+.three-d
+  transform: skewY(-10deg)
+  letter-spacing: 4px
+  word-spacing: -8px
+  color: white
+  text-shadow: 
+    -1px -1px 0 charcoal,
+    -2px -2px 0 charcoal,
+    -3px -3px 0 charcoal,
+    -4px -4px 0 charcoal,
+    -5px -5px 0 charcoal,
+    -6px -6px 0 charcoal,
+    -7px -7px 0 charcoal,
+    -8px -8px 0 charcoal,
+    -30px 20px 40px dimgrey
+
+ul li
+  list-style circle
+
+hr
+  outline 1px solid #333
+
+[type='submit'],
+[type='button'],
+[type='reset']
+  border none
+  outline 2px solid currentColor
+  cursor pointer
+  padding 0 half
+
+  &:hover
+    outline 2px solid transparent
+    color white
+    background-color charcoal
+    transform scale(1.05)
+    will-change transform
+
+    &::after
+      transform translate(0, 0)
+
+  &.active
+    background-color #ccc
+
+
+.button
+  border none
+  outline 2px solid currentColor
+  color charcoal
+  display inline-block
+  font-size 1rem
+  overflow hidden
+  padding 0 half
+  position relative
+  text-decoration none
+  transition .2s transform ease-in-out
+  will-change transform
+  z-index 0
+  
+  &::after
+    background-color charcoal
+    // border-radius 3rem
+    content: ''
+    display block
+    height 100%
+    width 100%
+    position absolute
+    left 0
+    top 0
+    transform translate(-100%, 0) rotate(10deg)
+    transform-origin top left
+    transition .2s transform ease-out
+    will-change transform
+    z-index -1
+
+    // &:hover
+    //   border none
+    //   outline 2px solid currentColor
+    
+  &:hover
+    outline 2px solid transparent
+    color white
+    transform scale(1.05)
+    will-change transform
+
+    &::after
+      transform translate(0, 0)
+
+  &.active
+    background-color #ccc
+
+
+strong 
+  font-weight bold
+
+small 
+  font-size .75rem
+
+
+dd, dt
+  display inline
+  line-height 1.5
+  //display inline-block
+  // display flex
+  // flex-wrap wrap
+
+dd
+  // text-indent 1.5rem
+
+kbd 
+  background-color graphite
+  border-radius 3px
+  outline 1px solid charcoal
+  box-shadow 0 1px 1px rgba(0, 0, 0, .2), 0 2px 0 0 rgba(255, 255, 255, .7) inset
+  color charcoal
+  display inline-block
+  font-size .75rem
+  font-weight 100
+  // line-height 1
+  padding 0 .5rem
+  white-space nowrap
+
+
+.layer__container-gallery
+  // background-color silver
+  // margin 0 auto
+  max-width 100%
+  padding 3rem 1.5rem
+
+  display block
+
+  // grid-gap double
+  // grid-template-columns 1fr 2fr
+  // grid-template-areas "solo detail"
+  // align-items center
+  // justify-content center
+
+.gallery
+  display grid
+  grid-gap 1.5rem
+  // grid-template-columns auto-fill
+  grid-template-columns repeat(auto-fit, minmax(150px, 1fr))
+  // grid-auto-rows 450px 300px
+  grid-auto-flow dense
+  margin-bottom full
+
+  // figure
+    // background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cline stroke='%23000000' stroke-width='1' x1='0' y1='100%25' x2='100%25' y2='0' /%3E%3Cline stroke='%23000000' stroke-width='1' x1='0' y1='0' x2='100%25' y2='100%25' /%3E%3C/svg%3E");
+
+    // width 100%
+    // overflow hidden
+
+    // margin-bottom: 1.5rem
+      
+    // img
+    //   height 100%
+    //   width 100% 
+    //   object-fit cover
+    //   object-position 50% 50%
+
+
+// Responsive Video embeds
+
+// .video
+//   // overflow hidden
+//   // width 100%
+
+//   & iframe
+//     // height 100%
+//     width 100%
+
+// .video
+//   // background-color black
+//   position relative
+//   padding-bottom 56.25%
+//   height 0
+//   // overflow hidden
+
+//   iframe
+//   	position absolute
+//   	width 100% !important
+//   	height 100% !important
+//     left 0
+//     top 0
+
+
+// canvas,
+// figure svg 
+//   width 100%
+
+fieldset
+  li
+    list-style-type none
+
+  label 
+
+  input 
+    background-color silver
+    font-weight 100
+
+label 
+  // display inline-block
+
+.end
+  background charcoal
+  mix-blend-mode: screen
+  .section__heading
+    color white
+
+  .section__minihead
+    color white
+
+    &::before
+      background-color white
+
+  p, a
+    color white
+
+
+// .textarea
+  // overflow hidden
+
+// textarea
+//   width 100%
+
+
+// [type='submit'],
+// [type='button'],
+// [type='reset'],
+[type='date'],
+[type='month'],
+[type='week'],
+[type='datetime'],
+[type='datetime-local']
+  line-height 1
+
+
+.resize
+  // width 100%
+  // overflow hidden
+
+  iframe,
+  textarea,
+  canvas,
+  svg
+    width 100%
+
+  img
+    height 100%
+    width 100% 
+    object-fit cover
+    object-position 50% 50%
+
+
++breakpoint("fun900")
+  li > label
+    display block
+
++breakpoint("fun800")
+  [class*="layer__container"]
+    // grid-template-columns: 1fr;
+    // grid-template-areas: "detail solo";
+    display block
+    padding 1.5rem 3rem
+
+  .section__heading
+    font-size 3rem
+    margin-bottom 3rem
+
+  .headline
+    line-height 1
+    margin-bottom .75rem
+
++breakpoint("fun600")
+  .section__heading
+    font-size 1.5rem
+
+  .sorrybro
+    display none
+
+* + *:last-child 
+  margin-bottom 0
+

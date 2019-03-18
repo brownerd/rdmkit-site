@@ -1,71 +1,6 @@
-// Globals
-lineHeight = 1.5
-baseFontSize = 20px
-half = .75rem
-full = 1.5rem
-threequarters = 2.25rem
-double = 3rem
-fx = .2s all ease-in-out
-
-face = {
-  mono : "ibm plex mono"
-}
-
-// simple breakpoints
-breakpoints = {
-  xs: "(max-width: 510px)",
-  sm: "(max-width: 850px)",
-  med: "(max-width: 1024px)",
-  lg: "(max-width: 1600px)"
-}
-
-breakpoint(name) 
-  @media breakpoints[name]
-    {block}
-
-// Flexbox debug tip from Wes Bos
-debug(color=red)
-  border 1px solid color
-
-// Colors
-black = #000
-charcoal = #333
-graphite = #ccc
-fog = #e6e6e6
-silver = #f5f5f5
-white = #fff
-red = #f00
-blue = #03F
-yellow = #ff0
-gold = #f1c40f
-magenta = magenta
-wintermint = #0FA
-slime = #67ff22
-watermellon = #f63752
-cyan = #46aeff
-green = #2BB673
-butter = #FFFCAD
-eggplant = #6E019D
-indigo = indigo
-brick = indianred
-transp = transparent
-
-codeBg = fog
-codeColor = charcoal
-codeColor2 = charcoal
-codeComment = charcoal
-codePunctuation = charcoal
-codeFucPropConstNum = charcoal
-codeSelectorStrAttr = charcoal
-codeValKeyClass = charcoal
-codeOperatorVarUrlEntity = charcoal
-codeReg = charcoal
-codeStyleToken = charcoal
-codeToken = charcoal
-
-
 // Imports
 // @import "resets"
+@import "globals"
 @import "ui/*"
 @import "vendor/*"
 
@@ -74,10 +9,14 @@ codeToken = charcoal
   font-size baseFontSize
   line-height lineHeight // 1.5
 
+  +breakpoint("xxs")
+    font-size 16px
+
   &.desktop 
     
     main
-      max-width 75ch
+      max-width 80ch
+      padding 0 1.5rem
 
   &.tablet 
     
@@ -111,7 +50,7 @@ codeToken = charcoal
   font-family: face.mono
   font-size 1rem
   font-weight normal
-  // line-height lineHeight
+  line-height lineHeight
   border none
   outline none
 
@@ -122,7 +61,7 @@ codeToken = charcoal
 
 body
   font-family: face.mono
-  font-weight 200
+  font-weight 400
 
 
 figure
@@ -149,7 +88,6 @@ p, ul
 
 .spacing
   margin-bottom 23px
-    
 
 hgroup
   transition fx
@@ -158,7 +96,8 @@ hgroup
   margin-top 33px
   margin-bottom 13px
 
-  h1, h2
+  h1, 
+  h2
     font-weight bold
     font-size 1.5rem
     line-height 1
@@ -166,14 +105,16 @@ hgroup
   h3
     font-style italic
 
+li
+  list-style-type circle
 
-.button
+.buttons
   background-color charcoal
   color white
   padding 0 .5rem
   // padding half
 
-button 
+button
   border 2px solid currentColor
   // outline 2px solid currentColor
   // border-radius 3rem
@@ -214,6 +155,9 @@ button
     transform scale(1.05)
     will-change transform
 
+  &.active
+    background-color #ccc
+
 
 main
   max-width 100%
@@ -230,18 +174,27 @@ strong
   
   &__column
     margin 0 auto
-    width 75ch
+    padding 0 full
+    margin-bottom double
+    width 80ch
 
     p, ul 
       margin-bottom full
 
     hgroup
       margin-top double
-      margin-bottom 1rem
+      margin-bottom full
+
+  &__headline
+    font-size 2rem
+    line-height 1
+    margin-top double
+    margin-bottom 1rem
 
 
   &__heading
-    font-size 2rem
+    font-weight bold
+    font-size 1.5rem
     line-height 1
 
   &__subhead
@@ -266,31 +219,27 @@ strong
     transform skewX(-45deg)
     //mix-blend-mode multiply
 
+kbd 
+  background-color graphite
+  border-radius 3px
+  outline 1px solid charcoal
+  box-shadow 0 1px 1px rgba(0, 0, 0, .2), 0 2px 0 0 rgba(255, 255, 255, .7) inset
+  color charcoal
+  display inline-block
+  font-size .75rem
+  font-weight 100
+  // line-height 1
+  padding 0 .5rem
+  white-space nowrap
 
-// IBM Plex Mono Regular
-// font-family: ibm-plex-mono, sans-serif;
-// font-weight: 400;
-// font-style: normal;
+footer
+  background-color charcoal
+  color white
 
-
-// IBM Plex Mono Italic
-// font-family: ibm-plex-mono, sans-serif;
-// font-weight: 400;
-// font-style: italic;
-
-
-// IBM Plex Mono Bold Italic
-// font-family: ibm-plex-mono, sans-serif;
-// font-weight: 800;
-// font-style: italic;
-
-
-// IBM Plex Mono Bold
-// font-family: ibm-plex-mono, sans-serif;
-// font-weight: 800;
-// font-style: normal;
-  
-// @import url("https://fonts.googleapis.com/css?family=Roboto+Slab:300,100,400,700")
-
-
+  p
+    margin 0
+    padding half 0 half half
  
+
+.textbox
+  outline 1px solid charcoal

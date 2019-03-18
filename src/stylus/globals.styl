@@ -1,0 +1,57 @@
+// Globals
+lineHeight = 1.5
+baseFontSize = 20px
+half = .75rem
+full = 1.5rem
+threequarters = 2.25rem
+double = 3rem
+fx = .2s all ease-in-out
+
+face = {
+  mono : "ibm plex mono"
+}
+
+// simple breakpoints
+breakpoints = {
+  funxxs: "(max-width: 400px)",
+  fun600: "(max-width: 600px)",
+  fun800: "(max-width: 800px)",
+  fun900: "(max-width: 900px)",
+  xxs: "(max-width: 440px)",
+  xs: "(max-width: 500px)",
+  sm: "(max-width: 850px)",
+  med: "(max-width: 960px)",
+  lg: "(max-width: 1024px)",
+  xl: "(max-width: 1600px)"
+}
+
+breakpoint(name) 
+  @media breakpoints[name]
+    {block}
+
+// Flexbox debug tip from Wes Bos
+debug(color=red)
+  border 1px solid color
+
+// Colors
+black = #000
+charcoal = #333
+graphite = hsla(0deg, 0%, 70%, .5)
+fog = #e6e6e6
+silver = hsla(0deg, 0%, 90%, .5)
+white = #fff
+red = #f00
+blue = #03F
+yellow = #ff0
+gold = #f1c40f
+magenta = magenta
+wintermint = #0FC
+slime = #6f2
+watermellon = #f63752
+cyan = #46aeff
+green = #2BB673
+butter = #FFFCAD
+eggplant = #6E019D
+indigo = indigo
+brick = indianred
+transp = transparent

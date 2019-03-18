@@ -5,72 +5,102 @@ extends layout/layout.pug
 
 block content
   main(class="main__column")
+
     hgroup
-      h2(class="main__heading") Install
+      h2(class="main__heading") Install 
+      h3(class="main__subhead") CPL, MZR, VRT and RDM
 
-    p I promise, this will not be about typographical commandments and shaming. Rather, I'll introduce some tools I made to help us all with the challenge of setting pleasing type online. 
 
+    p <code class="language-bash">npm install rdmkit --save-dev</code>
+    p This will install CPL as a devDependency. 
 
-    p Press the 
-        code.language-css period
-        |   key twice
-
-    pre.language-css
+    h3(class="main__subbold") Quick setup
+    pre.language-js
       code.
-        :root {
-          line-height: 1.5;
-          font-size: 20px;
+        import {cpl, mzr, vrt, rdm} from "rdmkit";
+        rdmkit();
+
+    p This will get you going, but you will have to comment it out or remove it for production builds. Unless, you want it in your build code.
+
+    h3(class="main__subbold") Conditional setup
+    pre.language-js
+      code. 
+        if (process.env.NODE_ENV === "development") {
+          var cpl = require("rdmkit-cpl");
+          cpl();
         }
 
+    p If you are using environment variables, this will only enable CPL while in development. It will not be included in the build. If you happen to use <a href="https://parceljs.org/env.html">ParcelJS</a> <code class="language-js">process.env.NODE_ENV === "development"</code> is set for you on all non-build runs. And it will also set <code class="language-js">process.env.NODE_ENV === "production"</code> when you do build. Super handy.
+
+
+    h3(class="main__subbold") Usage
+
+    p Select text and get a read-out of the number of characters you have selected. This is helpful if you need to know how many characters are in a line of text. You can also select as much text as you want and it will still tell you how many characters you have selected.
+
+    p Try it now. Select this text in this line to see what CPL does.
+
+
+
+
     hgroup
-      h2 Watch out
-      h3 for these elements
+      h2(class="main__heading") VRT
+      h3(class="main__subhead") Install the vertical grid tool
+
+    p <code class="language-bash">npm install rdmkit-vrt --save-dev</code>
+    p This will install VRT as a devDependency. This will not be bundled into production code.
+
+    p Now import this along with your frontend code and run it
+    pre(class="language-js", data-start)
+      code.
+        import vrt from "rdmkit-vrt";
+        vrt();
+
+    hgroup
+      h2(class="main__heading") RDM
+      h3(class="main__subhead") Install the script that will resize any element on the page.
+
+    p <code class="language-bash">npm install rdmkit-rdm --save</code>
+    p This will install RDM as a dependency. This will get bundled into production code as it is needed for keeping images and other media sized to the nearest multiple of the baseline.
+
+    p Now import this along with your frontend code and run it
+    pre.language-js
+      code.
+        import rdm from "rdmkit-rdm";
+        rdm();
+
+    hgroup
+      h2(class="main__heading") CPL
+      h3(class="main__subhead") Install the character-per-line counting tool
+
+    p <code class="language-bash">npm install rdmkit-cpl --save-dev</code>
+    p This will install CPL as a devDependency. This will not be bundled into production code.
+
+    p Now import this along with your frontend code and run it
+    pre.language-js
+      code.
+        import cpl from "rdmkit-cpl";
+        cpl();
+
+    hgroup
+      h2(class="main__heading") MZR
+      h3(class="main__subhead") Install the multiple measure visualization tool
+
+    p <code class="language-bash">npm install rdmkit-mzr --save-dev</code>
+    p This will install MZR as a devDependency. This will not be bundled into production code.
+
+    p Now import this along with your frontend code and run it
+    pre.language-js
+      code.
+        import mzr from "rdmkit-mzr";
+        mzr();
 
 
-    ul
-      li Border - use outline instead or box-shadow
-      li Button
-      li not using box-sizing
-      li elements that change line-height or font-size
-      li margin-collapsing
-      li sup, sub
-      li tables
-      li any element holding a image, audio, video, iframe, or embed
 
-  p warning these tools don't just do it all for you
-
-  h2 Usage
-  p It is not my intention to suggest that all of these tools need to be used to make a website. I just like having them at my disposal when I need them. 
-
-  div
-    h2 Citations
-    p The Elements of Typographic Style, Robert Bringhurst
-
-    h6 Typographer's task
-    ul
-      li The typogarpher's one essential task is to interpret and communicate the text (p 20)
-      li Typography exists to honor text (p 17)
-      li One of the principles of durable typography is always legibility (p 17)
-      li Shape the page and frame the textblock so that it honors and reveals every element, every relationship between elements, and every logical nuance of the text. (p 23)
-
-    h6 Choose face
-    ul
-      li Well-chosen word deserve well-chosen letters; these in their turn deserve to be set with affection, intelligence, knowledge and skill (p 18)
-      li Choose a typeface or a group of faces that will honor and elucidate the character of the text. (p 22)
-      li Allow the face to speak in its natural idiom
-      li Choose faces whose individual  spirit and character is in keeping with the text. (p 99)
+    h3(class="main__subbold") RDM
 
 
-    h6 break rules
-    ul
-      li By all means break the rules, and break them beautifully, delibrately and well (p 10)
-      li Surely typographers, like others, ought to be at liberty to follow or to blaze the trails they choose
 
 
-    h6 Measure
-      ul
-        li Anything from 45 to 75 characters is widely regarded as a satisfactory length of line for a single-column page set in a serifed typeface in a text size. The 66-character line (counting both letters and spaces) is widely regarded as ideal. (p 26)
-        li Longer measures need more lead than short ones. (p 37)
-        li Whether oral or visual, longwindedness is very rarely a virtue.
+
 
   script(src="../internal.js")
