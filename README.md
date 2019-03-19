@@ -1,18 +1,9 @@
-# RDMKIT
+# RDMKIT site
 
 
 ## List to fix
 
-- paragraph spacing
-
-- tell headings from paragraphs
-
-- button issues
-  - line-height
-  - border
-
-- add baseline
-- set :root
+- set up travis
 
 ## Web typography articles and tools
 - [CSS Baseline: The Good, The Bad And The Ugly](https://www.smashingmagazine.com/2012/12/css-baseline-the-good-the-bad-and-the-ugly/)
