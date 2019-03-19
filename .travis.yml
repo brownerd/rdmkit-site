@@ -1,67 +1,56 @@
-# Notes
-
-#image: node:10.15.1
 language: node_js
-node_js
-  - "10"
+node_js:
+  # latest node version
+  - "node"
+  # latest stable release
+  # - "lts/*"
+  # Specific version
+  # - "8"
 
 cache:
-  paths:
-    - node_modules/
+  npm: true
+  directories:
+    - node_modules
+# install:
+#   - npm install
 
-stages:
-  # - test
-  - build
-  - deploy
-  - killcache
+# stages:
+#   # - test
+#   - build
+#   - deploy
+#   - killcache
 
-build_prod:
-  stage: build
+# build_prod:
+#   stage: build
 
-  before_script:
-  #- npm install -g parcel elm pug-cli --unsafe-perm=true --allow-root
-    - npm install -g parcel pug-cli --unsafe-perm=true
 
-  script:
-    - npm install
-    - npm run build
-    # - elm make src/*elm —optimize —output==public/index
+before_script:
+  - npm install -g pug-cli
+  #c- npm install -g parcel pug-cli --unsafe-perm=true
 
-  artifacts:
-    paths:
-      - dist/
-
-  only:
-   - master
-
-variables:
-  AWS_DEFAULT_REGION: us-east-1
-  # BUCKET_NAME: 
-
-deploy_production:
-  image: python:latest
-  stage: deploy
+script:
+  - mkdir dist
+  - npm run build
+  - ls dist
+  # - mkdir dist
+  # - npm run build-stylus
+  # - npm run build-pug
+  # - ls dist
+  # - npm test
   
-  dependencies:
-    - build_prod
 
-  script:
-    - pip install awscli
-    - aws s3 cp dist s3://${BUCKET_NAME}/ --recursive
+before_deploy:
+  - npm install -g travis-ci-cloudfront-invalidation
 
-  environment:
-    name: review/${CI_COMMIT_REF_SLUG}
-    url: https://${BUCKET_NAME}.s3-website.${AWS_DEFAULT_REGION}.amazonaws.com/master
-  only:
-   - master 
+deploy:
+  provider: s3
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  bucket: $S3_BUCKET
+  skip_cleanup: true
+  local-dir: dist
+  on:
+    branch: master
 
-invalidate-cache:
-  image: python:latest
-  stage: killcache
-
-  script:
-    - pip install awscli
-    - aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_ID} --paths /*
-
-  only:
-   - master
+after_deploy:
+  - travis-ci-cloudfront-invalidation -a $AWS_ACCESS_KEY_ID -s $AWS_SECRET_ACCESS_KEY -c $CLOUDFRONT_ID -i '/*' -b $TRAVIS_BRANCH -p $TRAVIS_PULL_REQUEST
