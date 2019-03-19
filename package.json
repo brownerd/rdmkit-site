@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "parcel src/pug/index.pug --open 'google chrome canary'",
     "devnoc": "parcel src/pug/index.pug --no-cache --open 'google chrome canary'",
-    "build": "npm run clean && parcel build src/pug/index.pug",
+    "build": "parcel build src/pug/index.pug",
     "clean": "rm -rf dist",
     "deploy": "aws s3 cp dist/ s3://rdmkit.com --recursive",
     "killcache": "aws cloudfront create-invalidation --distribution-id E2QZUW3SPOXOF4 --paths /*"
