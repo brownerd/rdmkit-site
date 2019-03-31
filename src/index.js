@@ -3,6 +3,8 @@ import cpl from "rdmkit-cpl";
 import vrt from "rdmkit-vrt";
 import rdm from "rdmkit-rdm";
 
+import smoothScrollIntoView from "smooth-scroll-into-view-if-needed";
+
 import "prismjs";
 
 // mzr();
@@ -83,6 +85,14 @@ function toggleMargins() {
   //   root.classList.toggle("mobile");
   //   root.classList.remove("tablet");
   //   root.classList.remove("desktop");
+
+  setTimeout(() => {
+    desktopBtn.classList.add("animate-flicker");
+    smoothScrollIntoView(desktopBtn, { behavior: "smooth", block: "center" });
+  }, 500);
+  setTimeout(() => {
+    desktopBtn.classList.remove("animate-flicker");
+  }, 3000);
 }
 
 //   // let { top } = offset(mobile);
@@ -108,10 +118,22 @@ vrtBtn.addEventListener("click", function() {
 // Fix most of the spacing
 const fixSpaceBtn = document.querySelector("[rel='fix-space']");
 fixSpaceBtn.addEventListener("click", toggleFixSpace);
+// const btns = document.querySelectorAll("button");
 
 function toggleFixSpace() {
   toggleActivated(fixSpaceBtn);
   root.classList.toggle("fix-space");
+  // for (let b of btns) {
+  //   b.classList.toggle("noBorders");
+  // }
+
+  setTimeout(() => {
+    fixSpaceBtn.classList.add("animate-flicker");
+    smoothScrollIntoView(fixSpaceBtn, { behavior: "smooth", block: "center" });
+  }, 500);
+  setTimeout(() => {
+    fixSpaceBtn.classList.remove("animate-flicker");
+  }, 3000);
 }
 
 const scrollTopBtn = document.querySelector("[rel='scrollTop']");

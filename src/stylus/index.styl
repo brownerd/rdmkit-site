@@ -33,16 +33,18 @@
     p.spacing
       margin-bottom full
 
+    button
+      border none
+      outline 2px solid currentColor
+
+      &::after:hover
+        border none
+        outline 2px solid currentColor
+
     hgroup.hierarchy
       margin-top double
       margin-bottom full
 
-    button 
-      border none
-      outline 2px solid currentColor
-      &::after:hover
-        border none
-        outline 2px solid currentColor
 
 *
   margin 0
@@ -113,6 +115,7 @@ li
   color white
   padding 0 .5rem
   // padding half
+
 
 button
   border 2px solid currentColor
@@ -243,3 +246,14 @@ footer
 
 .textbox
   outline 1px solid charcoal
+
+@keyframes flickerAnimation
+  0% 
+    opacity 1
+  50%
+    opacity 0
+  100%
+    opacity 1
+
+.animate-flicker 
+  animation: flickerAnimation 1s infinite
