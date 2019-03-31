@@ -23,9 +23,14 @@ block content
           var cpl = require("rdmkit-cpl");
           var mzr = require("rdmkit-mzr");
           var vrt = require("rdmkit-vrt");
+          var runVRT = vrt({ belowColor: "#ccc" });
           cpl();
           mzr();
-          vrt({ belowColor: "#ccc" });
+
+          // Turn on grid after page (re)load
+          setTimeout(() => {
+            runVRT.belowGrid();
+          }, 500);
         }
 
     h3(class="main__subbold") style.css
