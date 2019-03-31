@@ -31,12 +31,15 @@ block content
     h3(class="main__subbold") style.css
     pre(class="language-css")
       code.
+        /* Set baseline height on root */
         :root {
           box-sizing: border-box;
           font-family: sans-serif;
           font-size: 20px;
           line-height: 1.5;
         }
+
+        /* Reset everything that effects layout height */
         * {
           margin: 0;
           padding: 0;
@@ -44,11 +47,15 @@ block content
           font-weight: normal;
           border: none;
         }
+
+        /* Setup box sizing */
         *,
         *:before,
         *:after {
           box-sizing: inherit;
         }
+
+        /* Fix tables for baseline rhythm */
         table {
           border-spacing: 0;
         }
@@ -58,6 +65,8 @@ block content
           outline-offset: -1px;
           padding: 0 0.75rem;
         }
+
+        /* Fix sup and sub for baseline rhythm */
         sup {
           display: inline-block;
           transform: translateY(-5px);
@@ -68,6 +77,8 @@ block content
           transform: translateY(5px);
           vertical-align: baseline;
         }
+
+        /* Fix special inputs for baseline rhythm */
         input[type='date'],
         input[type='month'],
         input[type='week'],
@@ -75,18 +86,8 @@ block content
         input[type='datetime-local'] {
           line-height: 1;
         }
-        .resize iframe,
-        .resize textarea,
-        .resize canvas,
-        .resize svg {
-          width: 100%;
-        }
-        .resize img {
-          height: 100%;
-          width: 100%;
-          object-fit: cover;
-          object-position: 50% 50%;
-        }
+
+        /* Fix kbd for baseline rhythm */
         kbd {
           background-color: #ccc;
           border-radius: 3px;
@@ -100,9 +101,32 @@ block content
           white-space: nowrap;
         }
 
-    h3(class="main__subbold") Download starter JS and CSS file if you don't want to copy from here
+        /* optional Resize class for RDM */
+        .resize {
+          overflow: hidden;
+          width: 100%;
+        }
+
+        .resize canvas,
+        .resize iframe,
+        .resize img,
+        .resize svg,
+        .resize textarea {
+          width: 100%;
+        }
+
+        .resize img {
+          object-fit: cover;
+          object-position: 50% 50%;
+        }
+
+        .resize img.gallery {
+          height: 100%; 
+        }
+
+    //- h3(class="main__subbold") Download starter JS and CSS file if you don't want to copy from here
       
-    p: a(href="https://github.com/brownerd/rdmkit-starter/raw/master/rdmkit-starter.zip") Download starter files
+    //- p: a(href="https://github.com/brownerd/rdmkit-starter/raw/master/rdmkit-starter.zip") Download starter files
 
 
   script(src="../internal.js")
