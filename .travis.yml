@@ -24,14 +24,14 @@ cache:
 #   stage: build
 
 
-before_script:
-  - npm install -g pug-cli
+# before_script:
+  # - npm install -g pug-cli
   #c- npm install -g parcel pug-cli --unsafe-perm=true
 
-script:
-  - mkdir dist
-  - npm run build
-  - ls dist
+# script:
+#   - mkdir dist
+#   - npm run build
+#   - ls dist
   # - mkdir dist
   # - npm run build-stylus
   # - npm run build-pug
@@ -40,7 +40,10 @@ script:
   
 
 before_deploy:
+  - npm install -g pug-cli
   - npm install -g travis-ci-cloudfront-invalidation
+  - npm run build
+  - ls dist
 
 deploy:
   provider: s3
