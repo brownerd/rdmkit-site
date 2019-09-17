@@ -82,6 +82,18 @@ block content
           grid-template-columns: 1fr;
           grid-template-rows: 50vh;
         }
+        
+    h3(class="main__subbold") Images Galleries
+    p When using an image gallery, we need to wait for ALL of the images to load before running the RDM resize the image. Othewise, we end up with potholes of unloaded images in our galleries. 
+    
+    p I like to use <a href="https://imagesloaded.desandro.com/">ImagesLoaded</a> by MetaFizzy. Now we can use imagesLoaded.js to wait for all images to laod inside any .resize element before running the <code class="language-js">rdm(".resize")</code> function.
+
+    pre.language-js
+      code.
+        var resizeAfterImagesLoaded = document.querySelectorAll('.resize');
+        imagesLoaded( resizeAfterImagesLoaded, function() {
+          rdm(".resize")
+        });
 
     hgroup
       h2(class="main__heading") Watch out
