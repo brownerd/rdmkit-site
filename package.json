@@ -18,7 +18,7 @@
   "repository": "",
   "license": "ISC",
   "dependencies": {
-    "prismjs": "^1.15.0",
+    "prismjs": "^1.24.0",
     "rdmkit-cpl": "^1.0.14",
     "rdmkit-mzr": "^1.0.6",
     "rdmkit-rdm": "^1.0.3",
