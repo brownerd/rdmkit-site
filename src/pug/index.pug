@@ -8,7 +8,7 @@ block content
     hgroup
       h2(id="top") Let's set some EFF'n type!
 
-    p I promise, this will not be about typographical commandments and shaming. Rather, I'll introduce some tools I made to help us all with the challenge of setting pleasing type online. 
+    p I promise, this will not be about typographical commandments and shaming. Rather, I'll introduce some tools I made to help us all with the challenge of setting pleasing type online.
 
     p First and foremost, you can do whatever in the hell you want with your type. Web typography best practices don't really exist, and we all know that insane deadlines challenge our best efforts to make everything <em>perfect</em>. All I ask is for a few moments of your time to introduce some tools and practices to empower you be a bad ass web typesetter.
 
@@ -18,22 +18,22 @@ block content
 
     p
       button(rel="spacing") Click here
-      |  to add some <em>visual separation</em> between the paragraphs. 
-      
+      |  to add some <em>visual separation</em> between the paragraphs.
+
     p A simple principle of typography is to increase legibility by separating blocks of text. Believe it or not, there was a time when we didn't do this. Adding spaces to stone, papyrus or simple books meant that stones, scrolls and books had to be BIGGER. This wasn't always feasible for our ancient typographers. Thankfully, the internet provides us with infinite space. Let's take advantage of that.
 
     hgroup
       h2 Things are a tad better
       h3 but the headings aren't clear
 
-    p 
+    p
       button(rel="hierarchy") Click here
-      |  to create <em>visual hierarchy</em> between our headings and paragraph text. 
-      
+      |  to create <em>visual hierarchy</em> between our headings and paragraph text.
+
     p We've been conditioned to think that bolder or bigger means more important. However, simply making our headings <em>different</em> from our paragraph text further increases legibility by hinting that <em>some</em> text is more <em>important</em> than other text. I also added more spacing to the tops of these headers than the bottoms. This helps to show that the heading is separated from the text above and related to the text below. Furthermore, styling headings to stand out, greatly helps online readers to <em>scan</em> the text for what they want to read. This is fine for now. Let's set some more type!
 
     hgroup
-      h2 Alright, these flippin' measures 
+      h2 Alright, these flippin' measures
       h3 are killing me!
 
     p A "measure" describes the amount of characters you have in a line of text. Some call it line-length or characters-per-line. Obviously, a long measure is a line that has many characters-per-line. And a short measure has few characters-per-line, thus a short line-length.
@@ -43,23 +43,23 @@ block content
     figure
       img(src="../images/long-measure.png", alt="Long measures on Wikipedia")
 
-    p So, let's introduce the first tool here. I call it <strong>CPL</strong>. It's for counting characters-per-line. To use, simply click and drag to select this entire line of text. How many characters is it saying the line is? With my browser window fully stretched, I'm getting a read out of 159 characters. While traditional typography from the print world holds a measure of between 45-85 as optimal, the internet has conditioned us to digest stoopid long lines of text. So, instead of telling you what your line-lengths should be, let's just start by being able to count them easily and make informed decisions on what might be best for the current project. 
+    p So, let's introduce the first tool here. I call it <strong>CPL</strong>. It's for counting characters-per-line. To use, simply click and drag to select this entire line of text. How many characters is it saying the line is? With my browser window fully stretched, I'm getting a read out of 159 characters. While traditional typography from the print world holds a measure of between 45-85 as optimal, the internet has conditioned us to digest stoopid long lines of text. So, instead of telling you what your line-lengths should be, let's just start by being able to count them easily and make informed decisions on what might be best for the current project.
 
     hgroup
       h2 Cool, we learned how to count characters easily
-      h3 but these measures are still crazy 
+      h3 but these measures are still crazy
 
     p(data-mzr="35/55/75") I'd say that the biggest issue right now is that the lines are way to long and they are touching each side of the browser window. We need margins. In print we need margins for protecting the text or making notes. However, online, we just need margins for separating site sections and making text look good. We have so much flexable space to use. We need to take advantage of this.
-    
+
     p So how much margin do we need? And what about responsive matters? Let's say that we wanted to visualize  a measure of ~35 characters (for mobile), ~55 characters (for a tablet) and ~75 characters (for desktop)all at once. I made another tool called <strong>MZR</strong> (measure) to visualize this. To make MZR work we need to add a data-attribute like this <code class="language-css">data-mzr="35/55/75"</code> to any element in our code.
 
-    p 
+    p
       button(rel="mzr") Click here
       |  to enable MZR so we can visualize multiple measures in one line.
 
     P Cool, so now we could use the inspector to figure out how to resize the width of this column to yield the measures we want.
 
-    p 
+    p
       button(rel="desktop") Click here
       |  to set this column to <code class="language-css">max-width: 75ch</code>.
 
@@ -79,27 +79,27 @@ block content
       h2 Sweet, everything is all lined up now right?
       h3 Wrong wrong wrong!
 
-    p Things look good, but unbeknownst to us, our spacing is all jacked up. We have completely ignored setting our type to a baseline grid. I know, things look good, but our vertical rhythm is all effed up! Time for another tool that I made called <strong>VRT</strong> (Vert - super short for vertical grid :) ). 
+    p Things look good, but unbeknownst to us, our spacing is all jacked up. We have completely ignored setting our type to a baseline grid. I know, things look good, but our vertical rhythm is all effed up! Time for another tool that I made called <strong>VRT</strong> (Vert - super short for vertical grid :) ).
 
-    p 
+    p
       button(rel="vrt") Click here
       |  to display the vertical grid.
 
     hgroup
       h2 Oh snap!
       h3 Nothing lines up to the grid!
-    
-    p A baseline grid, also known as a vertical grid, is a technique used for normalizing the vertical distrobution of elements on the page. Following a strict baseline grid creates a reliable "vertical rhythm." I'd argue that you don't need to do this, but it can help you to easily figure out how to space and size EVERYTHING on your web page. And it will help your page to look and feel friggity fresh. 
+
+    p A baseline grid, also known as a vertical grid, is a technique used for normalizing the vertical distrobution of elements on the page. Following a strict baseline grid creates a reliable "vertical rhythm." I'd argue that you don't need to do this, but it can help you to easily figure out how to space and size EVERYTHING on your web page. And it will help your page to look and feel friggity fresh.
 
     p Many of us just space elements on the page as we see fit. That's totally fine. I've done the same hundreds of times. But we aren't going to do that today. We are going to wrestle the type and content into a strict baseline grid and get our rhythm on.
 
-    p 
+    p
       button(rel="fix-space") Click here
       |   to fix <strong>most</strong> of our spacing issues.
 
-    p We saw things move, but despite my efforts to correctly set the margin and padding, paragraph text still isn't centered within the baseline grid cells yet. In a moment we are going to scroll up to the top and back down again. Notice that once we get to the top, all the paragraph text looks perfectly set to the baseline grid cells.  However, after we scroll past the image, the text gets out of rhythm again. 
-    
-    p 
+    p We saw things move, but despite my efforts to correctly set the margin and padding, paragraph text still isn't centered within the baseline grid cells yet. In a moment we are going to scroll up to the top and back down again. Notice that once we get to the top, all the paragraph text looks perfectly set to the baseline grid cells.  However, after we scroll past the image, the text gets out of rhythm again.
+
+    p
       button(rel="scrollTop") Click here
       |   to scroll to the top. When we scroll back down, notice that the image's height throws us off the baseline rhythm.
 
@@ -109,7 +109,7 @@ block content
 
     p Responsive images and media are the killers of vertical rhythm. Based on the user's device or resizing of the browser, our response images can end up at any given height. Despite our best efforts to set perfect type, this is where all of our efforts get derailed. To combat this issue I created another tool called <strong>RDM</strong> (rhythm) for resizing the height of any element to the nearest multiple of the baseline unit.
 
-    p 
+    p
       button(rel="rdm") Click here
       |   to get this train back on the tracks.
 
@@ -117,16 +117,16 @@ block content
       h2 EFFING DONE
       h3 and done
 
-    p That all folks! You clicked this page into perfect vertical rhythm! Much respect! 
-    
-    p There is more to typography than what we covered on this page, but this is a strong position to start with. RDMKIT is simply a set of tools for helping with the challenge of setting type online. It wont do all the hard work for you, but you can use this for <a href="all.pug">all</a> the base settings. 
-    
+    p That all folks! You clicked this page into perfect vertical rhythm! Much respect!
+
+    p There is more to typography than what we covered on this page, but this is a strong position to start with. RDMKIT is simply a set of tools for helping with the challenge of setting type online. It wont do all the hard work for you, but you can use this for <a href="all.pug">all</a> the base settings.
+
     p *This has not been tested through all the browsers that have ever existed. For all I care, IE browsers can burn in hell. I would consider RDMKIT as a progressive solution only. I have no interest in making legacy browsers pixel perfect. Things seem to work as expected in Chrome, Safari and Firefox.
-    
-    p Care to read <a href="mor.pug">mor</a>? Want to see RDMKIT used in a real and <a href="fun">fun</a> way to typeset nearly all the tags in HTML5? Want to learn more about installing <a href="cpl.pug">CPL</a>, <a href="mzr.pug">MZR</a>, <a href="vrt.pug">VRT</a>, <a href="rdm.pug">RDM</a> or <a href="all.pug">all</a> of them at once? Maybe you just want to look into the <a href="err.pug">err</a>ors that might arise while attemping to follow a strict baseline grid. Regardless, it has been a pleasure to hold your attention for this long. Stay awesome my friend!
+
+    p Care to read <a href="mor.pug">mor</a>? Want to see RDMKIT used in a real and <a href="fun.pug">fun</a> way to typeset nearly all the tags in HTML5? Want to learn more about installing <a href="cpl.pug">CPL</a>, <a href="mzr.pug">MZR</a>, <a href="vrt.pug">VRT</a>, <a href="rdm.pug">RDM</a> or <a href="all.pug">all</a> of them at once? Maybe you just want to look into the <a href="err.pug">err</a>ors that might arise while attemping to follow a strict baseline grid. Regardless, it has been a pleasure to hold your attention for this long. Stay awesome my friend!
 
   script(src="../index.js")
 
-    
-    
+
+
 
