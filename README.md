@@ -1,11 +1,11 @@
 # RDMKIT site
 
-
 ## List to fix
 
 - set up travis
 
 ## Web typography articles and tools
+
 - [CSS Baseline: The Good, The Bad And The Ugly](https://www.smashingmagazine.com/2012/12/css-baseline-the-good-the-bad-and-the-ugly/)
 - [Web Design is 95% Typography](https://ia.net/topics/the-web-is-all-about-typography-period)
 - [Reactions to 95% Typography](https://ia.net/topics/webdesign-is-95-typography-partii)
@@ -44,10 +44,11 @@
 - [Typographic Scale](http://retinart.net/typography/typographicscale/)
 - [Foundation 3.0 Typography and Modular Scale Collide](http://www.zurb.com/article/1000/foundation-30-typography-and-modular-scale)
 - [More Meaningful Typography](http://www.alistapart.com/articles/more-meaningful-typography/)
-
-
+- [Capsize](https://seek-oss.github.io/capsize/)
 
 ## Props
+
 - [HTML5 Test Page](https://cbracco.github.io/html5-test-page/)
 - [Image inside div has extra space below the image](https://stackoverflow.com/questions/5804256/image-inside-div-has-extra-space-below-the-image)
 - [URL-encoder for SVG](https://yoksel.github.io/url-encoder/)
+
